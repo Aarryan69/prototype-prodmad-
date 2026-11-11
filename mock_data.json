@@ -1,0 +1,320 @@
+{
+  "project": {
+    "name": "ROOTS",
+    "subname": "Living Lesson Engine",
+    "version": "1.0.0-mvp",
+    "case": "ProdMad 6.0 - IIM Shillong & biTeSys",
+    "context": "Mountain Village, Northeast India",
+    "operating_mode": "100% Offline-First Edge Deployment",
+    "budget": {
+      "total": 50000,
+      "currency": "INR",
+      "pools": [
+        {
+          "name": "Pool 01: Adoption & Community Training",
+          "allocated": 12000,
+          "percentage": 24,
+          "items": [
+            { "label": "Teacher Workshops & Calibration", "cost": 6000 },
+            { "label": "Community Story Honorariums", "cost": 4000 },
+            { "label": "Parent & School Open Days", "cost": 2000 }
+          ]
+        },
+        {
+          "name": "Pool 02: Classroom, Content & Resilience",
+          "allocated": 18000,
+          "percentage": 36,
+          "items": [
+            { "label": "Local Offline Wi-Fi Router (Intranet)", "cost": 4500 },
+            { "label": "Printing, Slates & Tactile Kits", "cost": 5000 },
+            { "label": "High-Durability USBs & Power Bank", "cost": 3500 },
+            { "label": "External Audio Speaker & Mic", "cost": 5000 }
+          ]
+        },
+        {
+          "name": "Pool 03: Conditional Hardware & Buffer",
+          "allocated": 20000,
+          "percentage": 40,
+          "items": [
+            { "label": "1 Dedicated Offline Tablet (Shared)", "cost": 12000 },
+            { "label": "Rugged Heavy-Duty Case & Stand", "cost": 3000 },
+            { "label": "Maintenance & Repair Escrow Reserve", "cost": 5000 }
+          ]
+        }
+      ]
+    },
+    "safeguards": [
+      {
+        "id": "01",
+        "title": "UNSUPPORTED INPUTS REJECTED",
+        "desc": "Unverifiable or culturally insensitive claims outside curriculum scope are blocked.",
+        "status": "PASS",
+        "details": "Audio content verified against local flora/agricultural baseline. Zero religious or controversial bias detected."
+      },
+      {
+        "id": "02",
+        "title": "DETERMINISTIC CODE ARITHMETIC",
+        "desc": "Strict prohibition on LLM math; independent rules engine recalculates all numerical values.",
+        "status": "PASS",
+        "details": "Python math rules executed: 24 // 6 = 4, remainder = 0. Zero floating point rounding error. Zero LLM hallucination."
+      },
+      {
+        "id": "03",
+        "title": "PEDAGOGICAL & DIALECT FIT",
+        "desc": "Teacher validates age-appropriateness, cognitive pace, and localized linguistic nuances.",
+        "status": "REQUIRES_TEACHER_SIGN_OFF",
+        "details": "Mapped to NCERT Grade 3-4 Foundational Numeracy. Language normalized from Khasi/Jaintia village dialect to bilingual classroom bridge."
+      },
+      {
+        "id": "04",
+        "title": "HARD SYSTEM GATEWAY",
+        "desc": "Offline cache is cryptographically locked; unapproved lessons cannot be served to tablets or printed.",
+        "status": "LOCKED",
+        "details": "SHA-256 package hash generated. Station broadcast locked until teacher clicks [APPROVE & SYNC]."
+      },
+      {
+        "id": "05",
+        "title": "COMMUNITY ATTRIBUTION & CONSENT",
+        "desc": "Every village elder or artisan is formally credited in lesson metadata.",
+        "status": "VERIFIED",
+        "details": "Elder consent logged on 11-Nov-2026. Honorarium voucher #HON-042 credited from Pool 01."
+      }
+    ]
+  },
+  "stories": [
+    {
+      "id": "story-01",
+      "contributor": {
+        "name": "Farmer Ramesh",
+        "ward": "Village East Ward",
+        "role": "Organic Vegetable Cultivator & Village Elder",
+        "avatar": "farmer",
+        "dialect": "Khasi / Eastern Hills Patois",
+        "consent_id": "ETH-VIL-2026-088",
+        "honorarium_status": "Logged & Disbursed (₹500)",
+        "consent_verified": true
+      },
+      "story_raw": "Farmer Ramesh harvested 24 fresh ripe tomatoes from his terraced hillside plot this morning. Before setting off for the weekly village mandi, he evenly distributed them across 6 woven cane baskets so none would get bruised on the rocky pathway.",
+      "audio_meta": {
+        "duration": "0:42",
+        "sample_rate": "16kHz Mono (Whisper Tiny.en)",
+        "source": "Classroom USB Dynamic Mic",
+        "wer": "3.8%"
+      },
+      "extraction": {
+        "entities": ["tomatoes", "baskets", "harvest", "mandi"],
+        "total_items": 24,
+        "item_name": "tomatoes",
+        "item_singular": "tomato",
+        "item_icon": "🍅",
+        "total_groups": 6,
+        "group_name": "baskets",
+        "group_singular": "basket",
+        "group_icon": "🧺",
+        "action": "equal distribution / partitioning"
+      },
+      "curriculum": {
+        "grade": "Grade 3-4 Numeracy",
+        "standard": "NCERT M3.04: Division as Equal Sharing",
+        "concept": "Equal Partitioning into Disjoint Sets",
+        "cognitive_tier": "Concrete Manipulative → Tactile Collaboration → Abstract Symbolic"
+      },
+      "deterministic_verification": {
+        "operation": "24 ÷ 6 = 4.0",
+        "formula": "items // groups == items / groups",
+        "quotient": 4,
+        "remainder": 0,
+        "verified_by": "Python 3.13.1 Hardcoded Rules Engine",
+        "execution_time_ms": 1.8,
+        "llm_math_risk": "0.0% (Deterministic Code Gated)"
+      },
+      "station_artifacts": {
+        "digital_station": {
+          "title": "Interactive Tablet Scene (Shared Device Station)",
+          "tagline": "5-8 min rotation per 10-student cohort on single rugged tablet",
+          "instructions": "Touch and drag each tomato from the harvest crate into the 6 baskets so every basket holds an equal number.",
+          "scaffold_rule": "Attempt before hint: System withholds prompts until student makes an authentic first trial.",
+          "hint": "Try placing 1 tomato into each of the 6 baskets first, then repeat until all 24 are shared.",
+          "target_per_basket": 4
+        },
+        "physical_station": {
+          "title": "Collaborative Group Activity (Tactile Station)",
+          "tagline": "Hands-on floor task using 24 real seeds/pebbles and 6 chalk circles",
+          "materials": ["24 dried tamarind seeds / river pebbles", "6 chalk circles drawn on classroom mud floor", "1 wooden tally stick"],
+          "roles": [
+            { "name": "Distributor", "task": "Places pebbles one-by-one into circles" },
+            { "name": "Counter", "task": "Counts total seeds aloud in local dialect" },
+            { "name": "Verifier", "task": "Checks that each chalk circle has an identical count" }
+          ],
+          "verbal_prompt": "Explain aloud to your group: 'We shared 24 seeds among 6 circles, and each circle got exactly 4 seeds because 6 times 4 makes 24.'"
+        },
+        "paper_station": {
+          "title": "Paper & Blackboard Assessment (Evaluation Station)",
+          "tagline": "Low-cost printable transfer worksheet or copyable blackboard guide",
+          "core_problem": "Farmer Ramesh brings 24 tomatoes in 6 baskets. How many tomatoes are in each basket? (Draw or write the number)",
+          "transfer_challenge": {
+            "prompt": "Novel Transfer Variation: What if Farmer Ramesh harvested 30 tomatoes and brought 5 baskets instead?",
+            "calculation": "30 ÷ 5 = 6 tomatoes per basket",
+            "pedagogical_purpose": "Guarantees student masters the generalized mathematical rule (Equal Partitioning), preventing rote recall."
+          }
+        }
+      }
+    },
+    {
+      "id": "story-02",
+      "contributor": {
+        "name": "Artisan Meera",
+        "ward": "Bamboo Crafts Cluster",
+        "role": "Master Weaver & Elder",
+        "avatar": "artisan",
+        "dialect": "Khasi / Local Hill Dialect",
+        "consent_id": "ETH-VIL-2026-089",
+        "honorarium_status": "Logged & Disbursed (₹500)",
+        "consent_verified": true
+      },
+      "story_raw": "Master Weaver Meera gathered 18 seasoned bamboo splints to weave a traditional grain storage lid. She arranged them into 3 symmetrical chevron triangles to balance the tension across the bamboo rim.",
+      "audio_meta": {
+        "duration": "0:38",
+        "sample_rate": "16kHz Mono (Whisper Tiny.en)",
+        "source": "Classroom USB Dynamic Mic",
+        "wer": "2.9%"
+      },
+      "extraction": {
+        "entities": ["bamboo splints", "chevron triangles", "weaving", "rim"],
+        "total_items": 18,
+        "item_name": "bamboo splints",
+        "item_singular": "splint",
+        "item_icon": "🎋",
+        "total_groups": 3,
+        "group_name": "chevron frames",
+        "group_singular": "frame",
+        "group_icon": "📐",
+        "action": "geometric partitioning & ratio distribution"
+      },
+      "curriculum": {
+        "grade": "Grade 3-4 Geometry & Numeracy",
+        "standard": "NCERT M3.06: Symmetry & Equal Grouping",
+        "concept": "Symmetrical Ratios & Polygon Construction",
+        "cognitive_tier": "Tactile Splints → Visual Angles → Abstract Ratios"
+      },
+      "deterministic_verification": {
+        "operation": "18 ÷ 3 = 6.0",
+        "formula": "items // groups == items / groups",
+        "quotient": 6,
+        "remainder": 0,
+        "verified_by": "Python 3.13.1 Hardcoded Rules Engine",
+        "execution_time_ms": 1.4,
+        "llm_math_risk": "0.0% (Deterministic Code Gated)"
+      },
+      "station_artifacts": {
+        "digital_station": {
+          "title": "Interactive Tablet Scene (Shared Device Station)",
+          "tagline": "5-8 min rotation per 10-student cohort on single rugged tablet",
+          "instructions": "Place 18 bamboo splints evenly into 3 triangular frames to complete the symmetrical weaving pattern.",
+          "scaffold_rule": "Attempt before hint: System withholds prompts until student makes an authentic first trial.",
+          "hint": "Count how many splints fit into one triangle before moving to the next.",
+          "target_per_basket": 6
+        },
+        "physical_station": {
+          "title": "Collaborative Group Activity (Tactile Station)",
+          "tagline": "Hands-on floor task using 18 twigs/splints and 3 chalk triangles",
+          "materials": ["18 bamboo twigs / sticks", "3 large triangles chalked on floor", "measuring string"],
+          "roles": [
+            { "name": "Weaver", "task": "Arranges splints along the perimeter" },
+            { "name": "Angle Inspector", "task": "Checks that each triangle has 6 sticks" },
+            { "name": "Spokesperson", "task": "Articulates the symmetry ratio to the class" }
+          ],
+          "verbal_prompt": "Explain: '18 bamboo splints split among 3 equal triangles gives 6 per triangle because 3 × 6 = 18.'"
+        },
+        "paper_station": {
+          "title": "Paper & Blackboard Assessment (Evaluation Station)",
+          "tagline": "Low-cost printable transfer worksheet or copyable blackboard guide",
+          "core_problem": "Artisan Meera needs 18 bamboo sticks for 3 baskets. How many sticks go into each basket?",
+          "transfer_challenge": {
+            "prompt": "Novel Transfer Variation: What if she had 24 sticks and 4 baskets? How many sticks per basket?",
+            "calculation": "24 ÷ 4 = 6 sticks per basket",
+            "pedagogical_purpose": "Validates that student generalizes division to multiple spatial contexts."
+          }
+        }
+      }
+    },
+    {
+      "id": "story-03",
+      "contributor": {
+        "name": "Elder Sonam",
+        "ward": "North River Settlement",
+        "role": "Community Storyteller & Horticulturalist",
+        "avatar": "elder",
+        "dialect": "Local River Valley Dialect",
+        "consent_id": "ETH-VIL-2026-090",
+        "honorarium_status": "Logged & Disbursed (₹500)",
+        "consent_verified": true
+      },
+      "story_raw": "Elder Sonam brought 40 kilograms of winter potatoes to the valley cooperative market. The cooperative manager packed them into 4 identical jute sacks to transport on the pack ponies.",
+      "audio_meta": {
+        "duration": "0:51",
+        "sample_rate": "16kHz Mono (Whisper Tiny.en)",
+        "source": "Classroom USB Dynamic Mic",
+        "wer": "3.1%"
+      },
+      "extraction": {
+        "entities": ["potatoes", "jute sacks", "cooperative", "market"],
+        "total_items": 40,
+        "item_name": "potatoes (kg)",
+        "item_singular": "potato kg",
+        "item_icon": "🥔",
+        "total_groups": 4,
+        "group_name": "jute sacks",
+        "group_singular": "jute sack",
+        "group_icon": "🛍️",
+        "action": "weight partitioning & equal measurement"
+      },
+      "curriculum": {
+        "grade": "Grade 3-4 Measurement & Division",
+        "standard": "NCERT M3.08: Units of Weight & Division",
+        "concept": "Weight Partitioning & Equal Measurement",
+        "cognitive_tier": "Scale Manipulatives → Jute Sacks → Numeric Units"
+      },
+      "deterministic_verification": {
+        "operation": "40 ÷ 4 = 10.0",
+        "formula": "items // groups == items / groups",
+        "quotient": 10,
+        "remainder": 0,
+        "verified_by": "Python 3.13.1 Hardcoded Rules Engine",
+        "execution_time_ms": 1.2,
+        "llm_math_risk": "0.0% (Deterministic Code Gated)"
+      },
+      "station_artifacts": {
+        "digital_station": {
+          "title": "Interactive Tablet Scene (Shared Device Station)",
+          "tagline": "5-8 min rotation per 10-student cohort on single rugged tablet",
+          "instructions": "Distribute 40 kg of potatoes equally into the 4 jute sacks.",
+          "scaffold_rule": "Attempt before hint: System withholds prompts until student makes an authentic first trial.",
+          "hint": "Think of tens: how many tens make forty?",
+          "target_per_basket": 10
+        },
+        "physical_station": {
+          "title": "Collaborative Group Activity (Tactile Station)",
+          "tagline": "Hands-on floor task using clay weights and 4 sack outlines",
+          "materials": ["40 clay weight tokens", "4 sack outlines on floor", "1 balance beam"],
+          "roles": [
+            { "name": "Porter", "task": "Loads weights into sacks" },
+            { "name": "Weighmaster", "task": "Checks balance across sacks" },
+            { "name": "Recorder", "task": "Marks tally marks on slate" }
+          ],
+          "verbal_prompt": "Explain: '40 kg divided into 4 sacks equals 10 kg each because 4 × 10 = 40.'"
+        },
+        "paper_station": {
+          "title": "Paper & Blackboard Assessment (Evaluation Station)",
+          "tagline": "Low-cost printable transfer worksheet or copyable blackboard guide",
+          "core_problem": "Elder Sonam packs 40 kg of potatoes in 4 sacks. How many kg in each sack?",
+          "transfer_challenge": {
+            "prompt": "Novel Transfer Variation: What if the harvest was 45 kg across 5 sacks?",
+            "calculation": "45 ÷ 5 = 9 kg per sack",
+            "pedagogical_purpose": "Tests flexible mental division with multiples of five."
+          }
+        }
+      }
+    }
+  ]
+}

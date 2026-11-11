@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROOTS | Teacher Audit & Approval Console (Slide 06)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP CASE BRIEF BANNER (Faithful to Slide 06 Prompt Book)
+       ======================================================================== -->
+  <header class="case-slide-header">
+    <div class="case-top-row">
+      <div class="case-badge-group">
+        <span class="slide-tag">06 TRUST / GOVERNANCE</span>
+        <span class="brand-title">ROOTS / LIVING LESSON ENGINE</span>
+      </div>
+      <div class="case-meta-right">
+        <span class="status-chip"><span class="pulse-dot"></span> 100% Offline Edge Mode</span>
+        <span class="status-chip">Laptop Server: 127.0.0.1:8000</span>
+        <span class="status-chip">Intranet: ROOTS_LOCAL_WIFI</span>
+      </div>
+    </div>
+    <h1 class="case-headline">Teachers stay in control: every lesson is reviewed before it reaches a child</h1>
+    <p class="case-subtitle">
+      <strong>Human-in-the-Loop Governance:</strong> Establishing verifiable pedagogical guardrails where generative proposes, deterministic rules verify, and teachers hold absolute publishing authority.
+    </p>
+  </header>
+
+  <!-- ========================================================================
+       MAIN APP SHELL
+       ======================================================================== -->
+  <div class="app-shell">
+
+    <!-- Mini Navigation Sidebar (Slide 06 icons) -->
+    <aside class="mini-sidebar">
+      <button class="mini-nav-item active" data-tooltip="Teacher Audit Console (Slide 06)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </button>
+      <button class="mini-nav-item" id="navStationsBtn" data-tooltip="Classroom Station Rotation (Slide 07)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"></circle><path d="M6.5 8a2 2 0 0 0-1.9 1.4l-1.5 5A2 2 0 0 0 5 17h14a2 2 0 0 0 1.9-2.6l-1.5-5A2 2 0 0 0 17.5 8z"></path><path d="M8 17v4"></path><path d="M16 17v4"></path></svg>
+      </button>
+      <button class="mini-nav-item" id="navCatalogBtn" data-tooltip="Village Knowledge Queue (Slide 01)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10"></path><path d="M6 10h10"></path></svg>
+      </button>
+      <div class="sidebar-spacer"></div>
+      <button class="mini-nav-item" id="navBudgetBtn" data-tooltip="₹50k Budget & Hardware (Slide 09)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      </button>
+      <button class="mini-nav-item" id="navSettingsBtn" data-tooltip="Offline Edge Settings">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </button>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-workspace">
+
+      <!-- Console Top Hero Bar (Slide 06) -->
+      <section class="console-hero-bar">
+        <div class="console-title-area">
+          <span class="hero-diamond">◆</span>
+          <h2 class="console-heading">Teacher's review</h2>
+          <div class="search-box-wrapper">
+            <span class="search-icon">⌕</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search testname or lesson...">
+          </div>
+        </div>
+
+        <div class="console-bar-right">
+          <div class="time-target-badge">
+            <span>Review time target: ≤8 min</span>
+            <span class="timer-val" id="auditStopwatch">01:42</span>
+          </div>
+          <div class="teacher-profile-pill">
+            <div class="teacher-avatar">AS</div>
+            <span>Teacher Ananya (Head Educator)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4-Stage Chevron Step Progress Bar (Slide 06) -->
+      <nav class="stepper-container" aria-label="Lesson Conversion Pipeline">
+        <div class="step-chevron done" id="step1">
+          <span class="step-num">01</span>
+          <span>INGEST (WHISPER)</span>
+          <span style="margin-left:auto; font-size: 0.8rem;">✔</span>
+        </div>
+        <div class="step-chevron active" id="step2">
+          <span class="step-num">02</span>
+          <span>REVIEW (ACTIVE AUDIT)</span>
+          <span class="pulse-dot" style="margin-left:auto;"></span>
+        </div>
+        <div class="step-chevron" id="step3">
+          <span class="step-num">03</span>
+          <span>VERIFY (PYTHON RULES)</span>
+        </div>
+        <div class="step-chevron" id="step4">
+          <span class="step-num">04</span>
+          <span>PUBLISH & SYNC</span>
+        </div>
+      </nav>
+
+      <!-- Main Audit Layout Grid -->
+      <div class="audit-grid-layout">
+
+        <!-- Story Selection Bar -->
+        <div class="story-selection-bar">
+          <div class="story-bar-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Active Community Ingestion:
+          </div>
+          <div class="story-pill-group" id="storyPillGroup">
+            <!-- Dynamically populated story tabs -->
+            <button class="story-pill-btn active" data-story="story-01">
+              <span>🍅</span> Farmer Ramesh (24 tomatoes, 6 baskets)
+            </button>
+            <button class="story-pill-btn" data-story="story-02">
+              <span>🎋</span> Artisan Meera (18 splints, 3 frames)
+            </button>
+            <button class="story-pill-btn" data-story="story-03">
+              <span>🥔</span> Elder Sonam (40 kg potatoes, 4 sacks)
+            </button>
+            <button class="story-pill-btn" id="openCustomStoryBtn" style="border-style: dashed; color: var(--pine-700);">
+              <span>+</span> New Village Story
+            </button>
+          </div>
+        </div>
+
+        <!-- Left Column & Right Column Hero Area -->
+        <div class="console-two-col">
+
+          <!-- ================================================================
+               LEFT CARD: Source & Story Verification
+               ================================================================ -->
+          <section class="audit-card">
+            <header class="audit-card-header">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
+                Source & Story Verification
+              </h3>
+              <span class="card-badge verified">Tacit Wealth Input</span>
+            </header>
+
+            <div class="audit-card-body">
+              <!-- Contributor Profile -->
+              <div class="contributor-box">
+                <div class="contributor-avatar-large" id="elderAvatarEmoji">👨‍🌾</div>
+                <div class="contributor-info">
+                  <div class="contributor-name" id="elderName">Farmer Ramesh (Village East Ward)</div>
+                  <div class="contributor-ward" id="elderRole">Organic Vegetable Cultivator & Village Elder</div>
+                  <div class="contributor-tags">
+                    <span class="sub-tag" id="elderDialect">Dialect: Khasi / Eastern Hills Patois</span>
+                    <span class="sub-tag" style="color: #047857; font-weight: bold;">Verified Contributor</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Audio Ingestion & Player -->
+              <div class="audio-player-box">
+                <div class="audio-header-row">
+                  <span>Offline Whisper Ingestion (16kHz Raw)</span>
+                  <span id="audioWer">WER: 3.8% • Latency: 0.8s</span>
+                </div>
+                <div class="audio-controls-row">
+                  <button class="audio-play-btn" id="audioPlayBtn" title="Play Elder Story Audio">
+                    <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                  </button>
+                  <div class="waveform-display" id="waveformDisplay">
+                    <!-- Audio wave bars -->
+                    <div class="wave-bar" style="height: 45%;"></div>
+                    <div class="wave-bar" style="height: 70%;"></div>
+                    <div class="wave-bar" style="height: 35%;"></div>
+                    <div class="wave-bar" style="height: 85%;"></div>
+                    <div class="wave-bar" style="height: 60%;"></div>
+                    <div class="wave-bar" style="height: 95%;"></div>
+                    <div class="wave-bar" style="height: 40%;"></div>
+                    <div class="wave-bar" style="height: 75%;"></div>
+                    <div class="wave-bar" style="height: 50%;"></div>
+                    <div class="wave-bar" style="height: 90%;"></div>
+                    <div class="wave-bar" style="height: 30%;"></div>
+                    <div class="wave-bar" style="height: 65%;"></div>
+                    <div class="wave-bar" style="height: 80%;"></div>
+                    <div class="wave-bar" style="height: 40%;"></div>
+                  </div>
+                  <span class="audio-time-label" id="audioTimer">0:00 / 0:42</span>
+                </div>
+              </div>
+
+              <!-- Context Extracted Story -->
+              <div class="story-context-box">
+                <div class="context-label">Context & Extracted Story Prompt</div>
+                <p class="context-text" id="storyContextText">
+                  "24 tomatoes harvested, distributed into 6 storage baskets."
+                </p>
+                <div style="margin-top: 8px; font-size: 0.72rem; color: var(--slate-500); display: flex; justify-content: space-between;">
+                  <span>Entities: Items = <strong id="metaItemCount">24</strong>, Groups = <strong id="metaGroupCount">6</strong></span>
+                  <span>Audio Mic: Classroom USB Dynamic</span>
+                </div>
+              </div>
+
+              <!-- Consent & Rights Verification -->
+              <div class="consent-box">
+                <div class="consent-header">
+                  <span>Consent & Rights</span>
+                  <span style="color: #047857; font-weight: 800;">[VERIFIED] ✔</span>
+                </div>
+                <div class="consent-detail-row">
+                  <span>Community elder consent & attribution logged</span>
+                  <strong id="consentId">#ETH-VIL-2026-088</strong>
+                </div>
+                <div class="consent-detail-row">
+                  <span>Honorarium Disbursed (Pool 01):</span>
+                  <span style="font-weight: 700; color: var(--pine-700);">₹500 Respectful Credit</span>
+                </div>
+                <div style="font-size: 0.68rem; color: var(--pine-900); background: rgba(20, 184, 166, 0.15); padding: 4px 8px; border-radius: 4px; margin-top: 2px;">
+                  Attribution stamped on all printed and digital classroom materials.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================================================================
+               RIGHT CARD: Deterministic Checks & Pedagogical Fit
+               ================================================================ -->
+          <section class="audit-card">
+            <header class="audit-card-header">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Deterministic Checks & Pedagogical Fit
+              </h3>
+              <span class="card-badge purple">Hardcoded Engine</span>
+            </header>
+
+            <div class="audit-card-body">
+              <!-- Extracted Objective -->
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">
+                  Extracted Objective
+                </div>
+                <div style="font-size: 1rem; font-weight: 800; color: var(--slate-900);" id="extractedObjective">
+                  Grade 3-4 Numeracy: Division as Equal Sharing
+                </div>
+                <div style="font-size: 0.74rem; color: var(--slate-600); margin-top: 2px;" id="curriculumMapping">
+                  NCERT Standard: M3.04 (Foundational Partitioning & Disjoint Set Formation)
+                </div>
+              </div>
+
+              <!-- Deterministic Math Verification Banner -->
+              <div class="math-verified-banner">
+                <div class="math-banner-left">
+                  <span class="math-calc-text" id="mathBannerCalc">24 ÷ 6 = 4.0</span>
+                  <span class="math-verified-pill">[VERIFIED BY PYTHON]</span>
+                </div>
+                <div class="math-zero-risk">Zero LLM Hallucination</div>
+              </div>
+
+              <!-- Collapsible/Expandable Python Verification Inspector -->
+              <div class="python-code-inspector">
+                <div class="code-inspector-header">
+                  <span>Deterministic Rule Execution Trace</span>
+                  <span class="file-badge">verify_engine.py • CPU 0.002s</span>
+                </div>
+                <pre class="python-code-body" id="pythonCodeSnippet">
+<span class="py-comment"># Hardcoded Python Verification (Zero LLM Math)</span>
+items, groups = <span class="py-num" id="pyCodeItems">24</span>, <span class="py-num" id="pyCodeGroups">6</span>
+<span class="py-kw">assert</span> items > 0 <span class="py-kw">and</span> groups > 0
+quotient, remainder = <span class="py-func">divmod</span>(items, groups)
+<span class="py-kw">assert</span> remainder == 0, <span class="py-str">"Equal partitioning required"</span>
+<span class="py-comment"># Status: VERIFIED (4 per group, remainder 0)</span></pre>
+              </div>
+
+              <!-- Output Preview Tri-Modal Switcher (Slide 04/06) -->
+              <div class="output-preview-container">
+                <div class="preview-tabs-row">
+                  <button class="preview-tab-btn active" data-tab="tab-digital">
+                    <span>📱</span> Interactive Tablet Scene
+                  </button>
+                  <button class="preview-tab-btn" data-tab="tab-physical">
+                    <span>🪨</span> Group Task Slate
+                  </button>
+                  <button class="preview-tab-btn" data-tab="tab-paper">
+                    <span>📄</span> Printable Worksheet
+                  </button>
+                </div>
+
+                <!-- PREVIEW TAB 1: INTERACTIVE TABLET SCENE -->
+                <div class="preview-tab-content" id="tab-digital">
+                  <div class="tablet-sim-card">
+                    <div class="tablet-sim-header">
+                      <span>Shared Device Station (5-8 min per cohort)</span>
+                      <span style="color: var(--pine-700); font-weight: 700;" id="simTargetCount">Target: 4 per basket</span>
+                    </div>
+
+                    <!-- Unplaced Items Crate -->
+                    <div style="font-size: 0.72rem; font-weight: 700; color: var(--slate-600); display: flex; justify-content: space-between;">
+                      <span id="harvestCrateLabel">Harvest Crate (Unplaced Tomatoes):</span>
+                      <span id="remainingCrateCounter" style="font-weight: 800; color: var(--tomato-600);">24 remaining</span>
+                    </div>
+                    <div class="tablet-unplaced-bin" id="unplacedBin">
+                      <!-- 24 tomato tokens rendered via JS -->
+                    </div>
+
+                    <!-- Baskets Grid (6 Baskets) -->
+                    <div class="baskets-grid" id="basketsGrid">
+                      <!-- Rendered dynamically -->
+                    </div>
+
+                    <!-- Actions & Scaffold Hint -->
+                    <div class="sim-actions-row">
+                      <button class="hint-pill-btn" id="scaffoldHintBtn">
+                        💡 Request Hint
+                      </button>
+                      <button class="btn btn-secondary" id="autoSolveBtn" style="font-size: 0.72rem; padding: 4px 10px;">
+                        ⚡ Auto-Distribute (Demo)
+                      </button>
+                      <button class="btn btn-secondary" id="resetSimBtn" style="font-size: 0.72rem; padding: 4px 10px;">
+                        ↺ Reset Simulation
+                      </button>
+                    </div>
+
+                    <div class="hint-box-pop" id="hintBoxPop" style="display:none;">
+                      <strong>Pedagogical Rule (Slide 05):</strong>
+                      <span id="hintMessageText">"Hint is a scaffold, not the answer: AI acts as a guiding mirror, never an automated answer engine."</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PREVIEW TAB 2: GROUP TASK SLATE (Tactile Floor Station) -->
+                <div class="preview-tab-content" id="tab-physical" style="display:none;">
+                  <div class="tactile-slate-view">
+                    <div style="font-size: 0.78rem; font-weight: 700; color: var(--slate-800);">
+                      Physical Hands-On Station (Zero Screen Dependency)
+                    </div>
+                    <div class="tactile-diagram">
+                      <div style="font-size: 0.72rem; color: var(--slate-600); margin-bottom: 4px;">
+                        Classroom Floor Layout: 6 Chalk Circles + 24 Tamarind Seeds / River Pebbles
+                      </div>
+                      <div class="circles-floor-diagram" id="floorCirclesDiagram">
+                        <div class="floor-circle">○ 4</div>
+                        <div class="floor-circle">○ 4</div>
+                        <div class="floor-circle">○ 4</div>
+                        <div class="floor-circle">○ 4</div>
+                        <div class="floor-circle">○ 4</div>
+                        <div class="floor-circle">○ 4</div>
+                      </div>
+                    </div>
+
+                    <div class="role-badge-row">
+                      <div class="role-card">
+                        <span class="role-name">1. Counter</span>
+                        <span class="role-desc">Counts 24 seeds aloud in local village dialect.</span>
+                      </div>
+                      <div class="role-card">
+                        <span class="role-name">2. Distributor</span>
+                        <span class="role-desc">Places seeds into chalk circles one by one.</span>
+                      </div>
+                      <div class="role-card">
+                        <span class="role-name">3. Verifier</span>
+                        <span class="role-desc">Confirms each circle has equal count (4).</span>
+                      </div>
+                    </div>
+
+                    <div style="background: var(--pine-50); border-left: 3px solid var(--pine-600); padding: 8px 10px; font-size: 0.72rem; color: var(--pine-900);">
+                      <strong>Verbal Articulation Prompt (Explain Phase):</strong>
+                      <span id="tactileVerbalPrompt">"Explain aloud: 24 seeds shared into 6 circles gives 4 in each circle because 6 times 4 is 24."</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PREVIEW TAB 3: PRINTABLE / BLACKBOARD ASSESSMENT -->
+                <div class="preview-tab-content" id="tab-paper" style="display:none;">
+                  <div class="slate-assessment-view">
+                    <div class="blackboard-box">
+                      <div class="blackboard-header">
+                        <span>CLASSROOM BLACKBOARD / PRINTABLE SLATE</span>
+                        <span>DATE: 12-NOV-2026</span>
+                      </div>
+                      <div class="blackboard-problem" id="slateProblemText">
+                        <strong>Story Problem:</strong> Farmer Ramesh brings 24 tomatoes in 6 baskets.<br>
+                        Draw the baskets and find how many tomatoes belong in each basket: _____
+                      </div>
+                      <div class="blackboard-transfer">
+                        <strong>TRANSFER VARIATION (Slide 05 & 08 Proof of Understanding):</strong><br>
+                        <span id="slateTransferText">"What if Farmer Ramesh had 30 tomatoes across 5 baskets? Solve on paper/slate without scaffolding."</span>
+                      </div>
+                    </div>
+
+                    <div class="print-actions-row">
+                      <span style="font-size: 0.72rem; color: var(--slate-500);">
+                        Format: High-contrast printable 1-page worksheet or blackboard chalk guide.
+                      </span>
+                      <button class="btn btn-secondary" id="printWorksheetBtn" style="font-size: 0.74rem;">
+                        🖨️ Print / Export Worksheet
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ================================================================
+             RIGHT SIDEBAR: 5 CORE SAFEGUARDS & GOVERNANCE ARCHITECTURE (Slide 06)
+             ================================================================ -->
+        <aside class="governance-panel">
+
+          <div class="governance-hero-card">
+            <div class="gov-panel-header">
+              <h4 class="gov-title">Governance Architecture</h4>
+              <p class="gov-sub">5 Core Safeguards for Human-in-the-Loop AI</p>
+            </div>
+
+            <div class="principle-banner">
+              PRINCIPLE: AI proposes. Rules verify. Teachers decide.
+            </div>
+
+            <div class="safeguards-list" id="safeguardsList">
+              <!-- Safeguard 01 -->
+              <div class="safeguard-item-card pass" data-sg="01">
+                <div class="safeguard-top">
+                  <span class="safeguard-title">01 [UNSUPPORTED INPUTS REJECTED]</span>
+                  <span class="safeguard-badge green">PASS</span>
+                </div>
+                <p class="safeguard-desc">Unverifiable or culturally insensitive claims outside curriculum scope are blocked.</p>
+              </div>
+
+              <!-- Safeguard 02 -->
+              <div class="safeguard-item-card pass" data-sg="02">
+                <div class="safeguard-top">
+                  <span class="safeguard-title">02 [DETERMINISTIC CODE ARITHMETIC]</span>
+                  <span class="safeguard-badge green">PASS (0.002s)</span>
+                </div>
+                <p class="safeguard-desc">Strict prohibition on LLM math; independent rules engine recalculates all numerical values.</p>
+              </div>
+
+              <!-- Safeguard 03 -->
+              <div class="safeguard-item-card require-sign" data-sg="03">
+                <div class="safeguard-top">
+                  <span class="safeguard-title">03 [PEDAGOGICAL & DIALECT FIT]</span>
+                  <span class="safeguard-badge amber" id="sg3Badge">TEACHER GATE</span>
+                </div>
+                <p class="safeguard-desc">Teacher validates age-appropriateness, cognitive pace, and localized linguistic nuances.</p>
+              </div>
+
+              <!-- Safeguard 04 -->
+              <div class="safeguard-item-card locked" data-sg="04">
+                <div class="safeguard-top">
+                  <span class="safeguard-title">04 [HARD SYSTEM GATEWAY]</span>
+                  <span class="safeguard-badge purple" id="sg4Badge">LOCKED</span>
+                </div>
+                <p class="safeguard-desc">Offline cache is cryptographically locked; unapproved lessons cannot be served to tablets or printed.</p>
+              </div>
+
+              <!-- Safeguard 05 -->
+              <div class="safeguard-item-card pass" data-sg="05">
+                <div class="safeguard-top">
+                  <span class="safeguard-title">05 [COMMUNITY ATTRIBUTION & CONSENT]</span>
+                  <span class="safeguard-badge green">VERIFIED</span>
+                </div>
+                <p class="safeguard-desc">Every village elder or artisan is formally credited in lesson metadata.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 07: Station Rotation Live Monitor -->
+          <div class="rotation-tracker-card">
+            <div class="rotation-tracker-header">
+              <span>Station Rotation (30 Students)</span>
+              <span class="rotation-timer-digit" id="rotationTimerDigit">12:24</span>
+            </div>
+            <p style="font-size: 0.68rem; color: var(--slate-500);">
+              Single shared tablet powers 3 concurrent stations without hardware bottlenecks.
+            </p>
+            <div class="cohort-flow-list">
+              <div class="cohort-row">
+                <span class="cohort-name">Cohort A (10 students)</span>
+                <span class="cohort-station">📱 Station 1: Tablet</span>
+              </div>
+              <div class="cohort-row">
+                <span class="cohort-name">Cohort B (10 students)</span>
+                <span class="cohort-station">🪨 Station 2: Floor Seeds</span>
+              </div>
+              <div class="cohort-row">
+                <span class="cohort-name">Cohort C (10 students)</span>
+                <span class="cohort-station">📄 Station 3: Chalk Slate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 09: Macro Budget Allocation Bar -->
+          <div class="budget-summary-card">
+            <div class="budget-header">
+              <span>₹50,000 Capital Endowment</span>
+              <span style="color: var(--pine-700); font-weight: 800;">Zero Recurring</span>
+            </div>
+            <div class="budget-bar-multi">
+              <div class="b-segment b-seg-1" title="Adoption & Training (₹12,000)"></div>
+              <div class="b-segment b-seg-2" title="Classroom & Resilience (₹18,000)"></div>
+              <div class="b-segment b-seg-3" title="Conditional Hardware (₹15,000)"></div>
+              <div class="b-segment b-seg-4" title="Maintenance Reserve (₹5,000)"></div>
+            </div>
+            <div class="budget-legend">
+              <div class="legend-item">
+                <span><span class="legend-dot" style="background: var(--pine-600);"></span>Pool 01: Adoption & Training</span>
+                <strong>₹12,000 (24%)</strong>
+              </div>
+              <div class="legend-item">
+                <span><span class="legend-dot" style="background: var(--ochre-500);"></span>Pool 02: Classroom & Router</span>
+                <strong>₹18,000 (36%)</strong>
+              </div>
+              <div class="legend-item">
+                <span><span class="legend-dot" style="background: var(--trust-600);"></span>Pool 03: Tablet & Reserve</span>
+                <strong>₹20,000 (40%)</strong>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- ================================================================
+             BOTTOM ACTION CONTROL BAR (Slide 06)
+             ================================================================ -->
+        <footer class="audit-bottom-bar">
+          <div class="action-bar-left">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--slate-700);">
+              Authoring Decision:
+            </span>
+            <span style="font-size: 0.74rem; color: var(--slate-500);" id="packageCryptoState">
+              Cryptographic Package: SHA-256 (Pending Authorization)
+            </span>
+          </div>
+
+          <div class="action-bar-right">
+            <button class="btn btn-primary-sync" id="approveSyncBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              [APPROVE & SYNC TO STATIONS]
+            </button>
+            <button class="btn btn-secondary" id="editParamsBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              [EDIT PARAMETERS]
+            </button>
+            <button class="btn btn-danger-ghost" id="rejectBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+              [REJECT / SEND BACK]
+            </button>
+          </div>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: EDIT PARAMETERS (Allows teacher to modify items/groups/dialect)
+       ======================================================================== -->
+  <div class="modal-overlay" id="editParamsModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Pedagogical Parameters</h3>
+        <button class="modal-close-btn" id="closeEditModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Total Harvest Items (e.g. Tomatoes, Bamboo Splints)</label>
+          <input type="number" id="inputTotalItems" class="form-input" min="1" max="100" value="24">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Total Grouping Units (e.g. Baskets, Chalk Circles)</label>
+          <input type="number" id="inputTotalGroups" class="form-input" min="1" max="20" value="6">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Target Curriculum Standard</label>
+          <select id="selectCurriculum" class="form-select">
+            <option value="Grade 3-4 Numeracy: Division as Equal Sharing">Grade 3-4 Numeracy: Division as Equal Sharing (NCERT M3.04)</option>
+            <option value="Grade 3-4 Geometry: Symmetry & Ratios">Grade 3-4 Geometry: Symmetry & Ratios (NCERT M3.06)</option>
+            <option value="Grade 3-4 Measurement: Weight & Partitioning">Grade 3-4 Measurement: Weight & Partitioning (NCERT M3.08)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Context Narrative / Story Adaptation</label>
+          <textarea id="inputStoryNarrative" class="form-textarea" rows="3">Farmer Ramesh harvested fresh tomatoes from his terraced hillside plot and distributed them across cane baskets.</textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Dialect Tuning & Pronunciation Bridge</label>
+          <input type="text" id="inputDialectBridge" class="form-input" value="Khasi Eastern Hills -> Bilingual Classroom">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+        <button class="btn btn-primary-sync" id="saveEditBtn">Recalculate & Re-verify</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: REJECT / SEND BACK REASON
+       ======================================================================== -->
+  <div class="modal-overlay" id="rejectModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color: var(--tomato-600);">Reject & Send Back to Ingestion Gate</h3>
+        <button class="modal-close-btn" id="closeRejectModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.8rem; color: var(--slate-600);">
+          As per Human-in-the-Loop Governance (Slide 06), rejected lessons are blocked from reaching children and returned with feedback.
+        </p>
+        <div class="form-group">
+          <label class="form-label">Reason for Rejection / Modification</label>
+          <select id="rejectReasonSelect" class="form-select">
+            <option value="dialect">Linguistic / Dialect Mismatch: Local phrasing unclear or inappropriate for Grade 3.</option>
+            <option value="curriculum">Cognitive Difficulty: Numbers exceed student baseline capacity.</option>
+            <option value="arithmetic">Division Remainder: Story does not divide evenly for foundational lesson.</option>
+            <option value="attribution">Attribution Missing: Community elder consent not formally signed.</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Teacher Pedagogical Notes</label>
+          <textarea id="rejectNotes" class="form-textarea" rows="3" placeholder="Provide actionable guidance for audio re-recording or parameter recalibration..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelRejectBtn">Cancel</button>
+        <button class="btn btn-danger-ghost" id="confirmRejectBtn">Confirm Rejection</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: NEW VILLAGE STORY CREATOR
+       ======================================================================== -->
+  <div class="modal-overlay" id="newStoryModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">Record / Ingest New Village Story</h3>
+        <button class="modal-close-btn" id="closeNewStoryModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Village Elder / Contributor Name</label>
+          <input type="text" id="newElderName" class="form-input" placeholder="e.g. Grandma Lahiri (Weaving Elder)">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Knowledge Domain</label>
+          <select id="newDomain" class="form-select">
+            <option value="Agricultural Science">Agricultural Science (Planting, Harvest, Mandi)</option>
+            <option value="Artisanal Geometry">Artisanal Geometry (Weaving, Bamboo, Pottery)</option>
+            <option value="Oral History & Ecology">Oral History & Indigenous Ecology</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Spoken Story Excerpt</label>
+          <textarea id="newStoryText" class="form-textarea" rows="3" placeholder="e.g. Artisan harvested 36 stalks of wild grass and bound them into 6 equal bundles..."></textarea>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Items Count</label>
+            <input type="number" id="newItems" class="form-input" value="36">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Groups Count</label>
+            <input type="number" id="newGroups" class="form-input" value="6">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelNewStoryBtn">Cancel</button>
+        <button class="btn btn-primary-sync" id="submitNewStoryBtn">Process with Local Whisper & Python</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
