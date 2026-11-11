@@ -50,7 +50,7 @@
         <span class="banner-tag">Lesson Review & Approval</span>
         <h1 class="banner-title">Teachers stay in control: review every lesson before it reaches your students</h1>
         <p class="banner-desc">
-          You have complete authority. Check the village story, verify the math, and preview the 3 classroom activities before sending the lesson to the student tablet and blackboard.
+          Click any step below to explore its dedicated space: ingest the village story, review the math and activities, check NCERT curriculum standards, or manage classroom station delivery.
         </p>
       </div>
       <div class="banner-right">
@@ -64,50 +64,50 @@
   </section>
 
   <!-- ========================================================================
-       4-STAGE WORKFLOW STEPPER
+       4-STAGE WORKFLOW STEPPER (CLICKABLE NAVIGATION TABS)
        ======================================================================== -->
-  <nav class="stepper-bar">
+  <nav class="stepper-bar" aria-label="Workflow Navigation">
     <div class="stepper-inner">
-      <div class="step-card done" id="step1">
-        <div class="step-badge">✓</div>
+      <div class="step-card" id="step1" data-space="space-ingest" role="button" tabindex="0" title="Click to view Village Story Ingestion">
+        <div class="step-badge">1</div>
         <div class="step-info">
           <span class="step-name">1. Village Story Ingested</span>
-          <span class="step-status-text">Audio recorded & transcribed</span>
+          <span class="step-status-text">Audio recording & bilingual transcript</span>
         </div>
       </div>
-      <div class="step-card active" id="step2">
+      <div class="step-card active" id="step2" data-space="space-review" role="button" tabindex="0" title="Click to view Teacher Review & Output Previews">
         <div class="step-badge">2</div>
         <div class="step-info">
           <span class="step-name">2. Teacher Review (Now)</span>
           <span class="step-status-text">Check math & classroom activities</span>
         </div>
       </div>
-      <div class="step-card" id="step3">
+      <div class="step-card" id="step3" data-space="space-curriculum" role="button" tabindex="0" title="Click to view NCERT Curriculum Verification">
         <div class="step-badge">3</div>
         <div class="step-info">
           <span class="step-name">3. Curriculum Verification</span>
-          <span class="step-status-text">Grade 3 NCERT standards</span>
+          <span class="step-status-text">Grade 3 NCERT standards & pedagogy</span>
         </div>
       </div>
-      <div class="step-card" id="step4">
+      <div class="step-card" id="step4" data-space="space-classroom" role="button" tabindex="0" title="Click to view Classroom Stations & Deployment">
         <div class="step-badge">4</div>
         <div class="step-info">
           <span class="step-name">4. Ready for Classroom</span>
-          <span class="step-status-text">Sent to tablet, floor & slate</span>
+          <span class="step-status-text">Station 1 Tablet, Floor Seeds & Slate</span>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- ========================================================================
-       MAIN DASHBOARD WORKSPACE
+       MAIN DASHBOARD WORKSPACE (4 DEDICATED SPACES)
        ======================================================================== -->
   <main class="workspace-wrapper">
 
-    <!-- Story Selector Bar -->
+    <!-- Global Story Selector Bar -->
     <div class="story-selection-bar">
       <div class="story-bar-label">
-        <span>📖</span> Select Story from Village Elders:
+        <span>📖</span> Active Community Knowledge:
       </div>
       <div class="story-pill-group">
         <button class="story-pill-btn active" data-story="story-01">
@@ -125,398 +125,763 @@
       </div>
     </div>
 
-    <!-- Main 2-Column Grid -->
-    <div class="dashboard-grid">
-
-      <!-- LEFT MAIN FLOW: Lesson Review Cards -->
-      <div class="main-content-flow">
-
-        <!-- Top Split: Contributor Story & Math Verification -->
-        <div class="two-card-split">
-
-          <!-- CARD 1: Story & Voice Recording -->
-          <div class="dash-card">
-            <div class="card-header-clean">
-              <div class="card-title-group">
-                <div class="card-icon">🎙️</div>
-                <h3 class="card-title-text">Village Story & Recording</h3>
-              </div>
-              <span class="card-badge-soft">Elder Voice</span>
-            </div>
-            <div class="card-body-clean">
-              <!-- Elder Profile -->
-              <div class="elder-profile-box">
-                <div class="elder-avatar" id="elderAvatarEmoji">👨‍🌾</div>
-                <div class="elder-meta">
-                  <span class="elder-name" id="elderName">Farmer Ramesh (Village East Ward)</span>
-                  <span class="elder-role" id="elderRole">Organic Vegetable Cultivator & Village Elder</span>
-                  <div class="elder-tags">
-                    <span class="tag-clean" id="elderDialect">Dialect: Khasi / Eastern Hills</span>
-                    <span class="tag-clean" style="color: var(--green-800); font-weight: bold;">Consent Verified ✓</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Audio Player -->
-              <div class="friendly-audio-box">
-                <div class="audio-top-label">
-                  <span>Listen to Story Audio (Offline Whisper)</span>
-                  <span id="audioWer">Accuracy: 96.2%</span>
-                </div>
-                <div class="audio-controls">
-                  <button class="play-circle-btn" id="audioPlayBtn" title="Play / Pause Audio">
-                    <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                    <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                  </button>
-                  <div class="waveform-bar-row">
-                    <div class="wave-stick" style="height: 40%;"></div>
-                    <div class="wave-stick" style="height: 75%;"></div>
-                    <div class="wave-stick" style="height: 35%;"></div>
-                    <div class="wave-stick" style="height: 90%;"></div>
-                    <div class="wave-stick" style="height: 60%;"></div>
-                    <div class="wave-stick" style="height: 80%;"></div>
-                    <div class="wave-stick" style="height: 45%;"></div>
-                    <div class="wave-stick" style="height: 85%;"></div>
-                    <div class="wave-stick" style="height: 55%;"></div>
-                    <div class="wave-stick" style="height: 70%;"></div>
-                    <div class="wave-stick" style="height: 30%;"></div>
-                  </div>
-                  <span class="audio-duration" id="audioTimer">0:00 / 0:42</span>
-                </div>
-              </div>
-
-              <!-- Spoken Story Quote -->
-              <div class="story-quote-card">
-                <div class="story-quote-title">Spoken Story Excerpt</div>
-                <p class="story-quote-body" id="storyContextText">
-                  "Farmer Ramesh harvested 24 fresh ripe tomatoes from his terraced hillside plot and distributed them equally across 6 cane baskets."
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 2: Curriculum & Math Verification (Teacher Friendly!) -->
-          <div class="dash-card">
-            <div class="card-header-clean">
-              <div class="card-title-group">
-                <div class="card-icon">📐</div>
-                <h3 class="card-title-text">Curriculum & Math Check</h3>
-              </div>
-              <span class="card-badge-soft" style="background: var(--green-100); color: var(--green-900);">Class 3 Math</span>
-            </div>
-            <div class="card-body-clean">
-              <div>
-                <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Learning Competency</span>
-                <div style="font-size: 1.05rem; font-weight: 800; color: var(--green-950);" id="extractedObjective">
-                  Grade 3 Numeracy: Division as Equal Sharing
-                </div>
-                <span style="font-size: 0.76rem; color: var(--text-muted);" id="curriculumMapping">
-                  NCERT Standard M3.04 (Equal Partitioning & Grouping)
-                </span>
-              </div>
-
-              <!-- Reassuring Math Check Card -->
-              <div class="math-check-card">
-                <div class="math-check-top">
-                  <span class="math-calc-large" id="mathBannerCalc">24 ÷ 6 = 4 tomatoes per basket</span>
-                  <span class="math-verified-tag">✓ 100% Correct</span>
-                </div>
-                <p class="math-explanation" id="mathExplanation">
-                  Equal sharing confirmed: 24 divided into 6 equal groups leaves 0 remainder. Ideal for foundational Grade 3 understanding.
-                </p>
-              </div>
-
-              <!-- Lesson Summary Grid -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px;">
-                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px; border-radius: var(--radius-sm);">
-                  <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Total Items</span>
-                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--green-900);" id="summaryItems">24 Tomatoes</div>
-                </div>
-                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px; border-radius: var(--radius-sm);">
-                  <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Equal Groups</span>
-                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--green-900);" id="summaryGroups">6 Baskets</div>
-                </div>
-              </div>
-
-              <!-- Teacher Guidance -->
-              <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; background: var(--green-50); border: 1px solid var(--green-200); padding: 8px 12px; border-radius: var(--radius-sm);">
-                💡 <strong>Pedagogy note:</strong> Students will touch and move physical or digital items before writing symbols on paper.
-              </div>
-            </div>
-          </div>
-
+    <!-- ======================================================================
+         SPACE 1: VILLAGE STORY INGESTION WORKBENCH
+         ====================================================================== -->
+    <section class="step-space-view" id="space-ingest">
+      <div class="space-header-banner">
+        <div>
+          <h2 class="space-header-title">Step 1: Village Knowledge & Audio Ingestion</h2>
+          <p class="space-header-sub">Capturing oral wisdom from community elders and farmers using offline Whisper speech-to-text.</p>
         </div>
+        <span class="card-badge-soft" style="background: var(--green-100); color: var(--green-900);">Offline Whisper Engine</span>
+      </div>
 
-        <!-- Output Previews: The 3 Classroom Learning Stations -->
+      <div class="two-card-split">
+        <!-- Elder Profile Card -->
         <div class="dash-card">
           <div class="card-header-clean">
             <div class="card-title-group">
-              <div class="card-icon">🎒</div>
-              <h3 class="card-title-text">Preview Classroom Activities</h3>
+              <div class="card-icon">👵</div>
+              <h3 class="card-title-text">Storyteller Profile & Consent</h3>
             </div>
-            <span style="font-size: 0.76rem; color: var(--text-muted);">Preview what your students will do across 3 stations</span>
+            <span class="card-badge-soft">Tacit Heritage</span>
           </div>
-
           <div class="card-body-clean">
-            <!-- Tabs -->
-            <div class="preview-tabs-clean">
-              <button class="tab-btn-clean active" data-tab="tab-digital">
-                <span>📱</span> Station 1: Tablet Activity
-              </button>
-              <button class="tab-btn-clean" data-tab="tab-physical">
-                <span>🪨</span> Station 2: Floor Seeds & Chalk
-              </button>
-              <button class="tab-btn-clean" data-tab="tab-paper">
-                <span>📄</span> Station 3: Blackboard & Slate
-              </button>
-            </div>
-
-            <!-- PREVIEW 1: TABLET SCENE SIMULATOR -->
-            <div class="preview-panel" id="tab-digital">
-              <div class="tablet-preview-card">
-                <div class="tablet-instructions-banner">
-                  <span>Student Task: Share the 24 harvest tomatoes equally into 6 baskets.</span>
-                  <span style="font-weight: 800; color: var(--green-800);" id="simTargetCount">Target: 4 in each basket</span>
-                </div>
-
-                <!-- Unplaced items crate -->
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font-size: 0.76rem; font-weight: 700; color: var(--text-main);" id="harvestCrateLabel">Harvest Basket (Items to place):</span>
-                  <span style="font-size: 0.78rem; font-weight: 800; color: var(--tomato-600);" id="remainingCrateCounter">24 remaining</span>
-                </div>
-                <div class="crate-area-clean" id="unplacedBin">
-                  <!-- Rendered dynamically -->
-                </div>
-
-                <!-- Baskets Grid -->
-                <div class="baskets-grid-clean" id="basketsGrid">
-                  <!-- Rendered dynamically -->
-                </div>
-
-                <!-- Teacher Controls for Tablet Preview -->
-                <div class="interactive-action-row">
-                  <div style="display: flex; gap: 8px;">
-                    <button class="btn-clean btn-outline-neutral" id="scaffoldHintBtn" style="font-size: 0.78rem; padding: 6px 12px;">
-                      💡 Test Hint
-                    </button>
-                    <button class="btn-clean btn-outline-neutral" id="autoSolveBtn" style="font-size: 0.78rem; padding: 6px 12px;">
-                      ⚡ Quick Fill (Demo)
-                    </button>
-                    <button class="btn-clean btn-outline-neutral" id="resetSimBtn" style="font-size: 0.78rem; padding: 6px 12px;">
-                      ↺ Reset
-                    </button>
-                  </div>
-                  <span style="font-size: 0.72rem; color: var(--text-muted);">
-                    Tip: Click any tomato or basket to try placing items!
-                  </span>
-                </div>
-
-                <div id="hintBoxPop" style="display:none; background: var(--amber-50); border: 1px solid var(--amber-600); border-radius: var(--radius-sm); padding: 10px 14px; font-size: 0.78rem; color: var(--amber-700);">
-                  <strong>Student Hint Guide:</strong> <span id="hintMessageText">Try placing 1 tomato into each basket first, then repeat until the harvest crate is empty.</span>
+            <div class="elder-profile-box">
+              <div class="elder-avatar" id="ingestElderAvatar">👨‍🌾</div>
+              <div class="elder-meta">
+                <span class="elder-name" id="ingestElderName">Farmer Ramesh (Village East Ward)</span>
+                <span class="elder-role" id="ingestElderRole">Organic Vegetable Cultivator & Village Elder</span>
+                <div class="elder-tags">
+                  <span class="tag-clean" id="ingestElderDialect">Dialect: Khasi / Eastern Hills</span>
+                  <span class="tag-clean" style="color: var(--green-800); font-weight: bold;">Consent Token #ETH-2026-088 ✓</span>
                 </div>
               </div>
             </div>
 
-            <!-- PREVIEW 2: FLOOR ACTIVITY (Seeds & Chalk) -->
-            <div class="preview-panel" id="tab-physical" style="display:none;">
-              <div class="floor-lesson-card">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font-size: 0.85rem; font-weight: 800; color: var(--green-950);">
-                    Hands-On Floor Activity (No Device Required)
-                  </span>
-                  <span class="card-badge-soft">Classroom Mud/Cement Floor</span>
-                </div>
-
-                <div class="floor-visual-chalk">
-                  <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">
-                    Chalk Circles Layout on Floor: 6 Circles with 4 Seeds in Each
-                  </span>
-                  <div class="chalk-circles-row" id="floorCirclesDiagram">
-                    <!-- Circles populated via JS -->
-                  </div>
-                </div>
-
-                <div class="role-cards-grid">
-                  <div class="role-clean-card">
-                    <span class="role-title">1. The Counter</span>
-                    <span class="role-desc">Counts 24 tamarind seeds or pebbles aloud in the local dialect.</span>
-                  </div>
-                  <div class="role-clean-card">
-                    <span class="role-title">2. The Distributor</span>
-                    <span class="role-desc">Places seeds into each chalk circle one by one.</span>
-                  </div>
-                  <div class="role-clean-card">
-                    <span class="role-title">3. The Checker</span>
-                    <span class="role-desc">Counts each circle to verify equal distribution (4 seeds each).</span>
-                  </div>
-                </div>
-
-                <div style="background: var(--green-50); border-left: 4px solid var(--green-600); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--green-900);">
-                  🗣️ <strong>Classroom Explanation Prompt:</strong>
-                  <span id="tactileVerbalPrompt">Have the group say together: "24 seeds divided among 6 circles equals 4 seeds in each circle because 6 times 4 is 24."</span>
-                </div>
-              </div>
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 14px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 0.74rem; font-weight: 800; color: var(--green-900); text-transform: uppercase;">Community Attribution & Honorarium</span>
+              <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+                As required by the community adoption mandate, Farmer Ramesh is formally credited on all student worksheets, and an honorarium of <strong>₹500</strong> has been disbursed from Adoption Pool 01.
+              </p>
             </div>
-
-            <!-- PREVIEW 3: BLACKBOARD & WORKSHEET -->
-            <div class="preview-panel" id="tab-paper" style="display:none;">
-              <div class="worksheet-preview-card">
-                <div class="worksheet-paper-sheet">
-                  <div class="worksheet-header-clean">
-                    <span>PRIMARY MATH WORKSHEET • CLASS 3</span>
-                    <span>STUDENT NAME: ____________________</span>
-                  </div>
-                  <div class="worksheet-question-box" id="slateProblemText">
-                    <strong>Question 1:</strong> Farmer Ramesh brings 24 tomatoes from his field in 6 cane baskets.<br>
-                    Draw the tomatoes in each basket and write the answer:<br>
-                    Number of tomatoes in each basket = <strong>[ ____ ]</strong>
-                  </div>
-                  <div class="transfer-highlight-box">
-                    <strong>Challenge Question (Independent Thinking):</strong><br>
-                    <span id="slateTransferText">"What if Farmer Ramesh had 30 tomatoes across 5 baskets? Draw and solve on your slate."</span>
-                  </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font-size: 0.75rem; color: var(--text-muted);">
-                    Teachers can photocopy this worksheet or easily copy it directly onto the blackboard.
-                  </span>
-                  <button class="btn-clean btn-outline-neutral" id="printWorksheetBtn" style="font-size: 0.8rem;">
-                    🖨️ Print Worksheet
-                  </button>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
 
-        <!-- Bottom Sticky Teacher Decision Bar -->
-        <div class="bottom-sticky-bar">
-          <div class="action-status-left">
-            <div class="action-status-dot" id="actionStatusDot"></div>
-            <div>
-              <div class="action-status-title" id="actionStatusTitle">Review Pending Teacher Approval</div>
-              <div class="action-status-sub" id="actionStatusSub">Click approve to sync this lesson to student tablets and blackboard guides.</div>
+        <!-- Ingestion Audio Player & Transcription Metrics -->
+        <div class="dash-card">
+          <div class="card-header-clean">
+            <div class="card-title-group">
+              <div class="card-icon">🎙️</div>
+              <h3 class="card-title-text">Audio Ingestion Player</h3>
+            </div>
+            <span class="card-badge-soft" id="ingestAudioWer">Accuracy: 96.2%</span>
+          </div>
+          <div class="card-body-clean">
+            <div class="friendly-audio-box">
+              <div class="audio-top-label">
+                <span>Classroom USB Microphone Recording (16kHz Offline)</span>
+                <span id="ingestAudioTimer">0:00 / 0:42</span>
+              </div>
+              <div class="audio-controls">
+                <button class="play-circle-btn" id="ingestAudioPlayBtn" title="Play Voice Recording">
+                  <svg id="ingestPlayIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <svg id="ingestPauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                </button>
+                <div class="waveform-bar-row">
+                  <div class="wave-stick" style="height: 35%;"></div>
+                  <div class="wave-stick" style="height: 80%;"></div>
+                  <div class="wave-stick" style="height: 45%;"></div>
+                  <div class="wave-stick" style="height: 95%;"></div>
+                  <div class="wave-stick" style="height: 60%;"></div>
+                  <div class="wave-stick" style="height: 75%;"></div>
+                  <div class="wave-stick" style="height: 40%;"></div>
+                  <div class="wave-stick" style="height: 90%;"></div>
+                  <div class="wave-stick" style="height: 50%;"></div>
+                  <div class="wave-stick" style="height: 70%;"></div>
+                  <div class="wave-stick" style="height: 35%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px; border-radius: var(--radius-sm);">
+                <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Whisper Latency</span>
+                <div style="font-size: 0.95rem; font-weight: 800; color: var(--green-900);">0.8s on CPU</div>
+              </div>
+              <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px; border-radius: var(--radius-sm);">
+                <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Data Consumption</span>
+                <div style="font-size: 0.95rem; font-weight: 800; color: var(--green-900);">0 KB (100% Offline)</div>
+              </div>
             </div>
           </div>
-
-          <div class="action-buttons-group">
-            <button class="btn-clean btn-ghost-soft" id="rejectBtn">
-              ✕ Send Back for Changes
-            </button>
-            <button class="btn-clean btn-outline-neutral" id="editParamsBtn">
-              ✏️ Edit Story or Numbers
-            </button>
-            <button class="btn-clean btn-primary-green" id="approveSyncBtn">
-              ✓ Approve & Send to Classroom
-            </button>
-          </div>
         </div>
-
       </div>
 
-      <!-- RIGHT SIDEBAR: Safeguards & Station Rotations -->
-      <aside class="sidebar-panel-clean">
-
-        <!-- Quality & Safety Safeguards (Slide 06) -->
-        <div class="sidebar-card-clean">
-          <div class="sidebar-title">
-            <span>5 Quality Safeguards</span>
-            <span class="card-badge-soft" style="font-size: 0.65rem;">Active</span>
+      <!-- Bilingual Translation & Entity Extraction Card -->
+      <div class="dash-card">
+        <div class="card-header-clean">
+          <div class="card-title-group">
+            <div class="card-icon">🗣️</div>
+            <h3 class="card-title-text">Bilingual Dialect Transcription & Extracted Facts</h3>
+          </div>
+          <span class="card-badge-soft">Classroom Language Bridge</span>
+        </div>
+        <div class="card-body-clean">
+          <div class="bilingual-grid">
+            <div class="transcript-col-card">
+              <div class="transcript-col-header">
+                <span>Original Spoken Dialect (Khasi / Hill Village)</span>
+                <span>Spoken Audio</span>
+              </div>
+              <p class="transcript-text-p" id="ingestDialectText">
+                "U nongrep Ramesh u la lum 24 tylli ki soh saw na lyngkha bad u la sam mar ryngkat ha ki 6 tylli ki shang..."
+              </p>
+            </div>
+            <div class="transcript-col-card">
+              <div class="transcript-col-header">
+                <span>Classroom English / Regional Translation</span>
+                <span>Extracted Meaning</span>
+              </div>
+              <p class="transcript-text-p" id="ingestEnglishText">
+                "Farmer Ramesh harvested 24 fresh ripe tomatoes from his terraced hillside plot and distributed them equally across 6 cane baskets."
+              </p>
+            </div>
           </div>
 
-          <div class="safeguards-checklist">
-            <!-- Safeguard 1 -->
-            <div class="check-item">
-              <div class="check-icon-circle">✓</div>
-              <div class="check-text">
-                <span class="check-title">Child-Safe & Respectful</span>
-                <span class="check-desc">Appropriate for young children; no sensitive or confusing material.</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; background: var(--green-50); border: 1px solid var(--green-200); padding: 12px 16px; border-radius: var(--radius-md);">
+            <div style="font-size: 0.82rem; color: var(--green-900);">
+              ✓ <strong>Extracted Entities:</strong> <span id="ingestEntitiesSummary">24 Tomatoes partitioned across 6 Baskets (Equal Sharing)</span>
+            </div>
+            <button class="btn-clean btn-primary-green" id="goToReviewFromIngestBtn" style="font-size: 0.8rem; padding: 8px 16px;">
+              Review This Lesson in Step 2 →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-nav-footer">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">Step 1 of 4: Village Story Ingested</span>
+        <button class="btn-clean btn-primary-green" id="nextToReviewBtn">
+          Next: Step 2 - Teacher Review →
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SPACE 2: TEACHER REVIEW & AUDIT CONSOLE (Slide 06 Core Hero Interface)
+         ====================================================================== -->
+    <section class="step-space-view active" id="space-review">
+      <div class="space-header-banner">
+        <div>
+          <h2 class="space-header-title">Step 2: Teacher Audit & Activity Previews</h2>
+          <p class="space-header-sub">Verify the story, confirm calculation accuracy, and test the 3 learning activities before signing off.</p>
+        </div>
+        <span class="card-badge-soft" style="background: var(--green-100); color: var(--green-900);">Slide 06 Core Hero</span>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Main Left Column -->
+        <div class="main-content-flow">
+          <div class="two-card-split">
+
+            <!-- Card 1: Story Brief -->
+            <div class="dash-card">
+              <div class="card-header-clean">
+                <div class="card-title-group">
+                  <div class="card-icon">🎙️</div>
+                  <h3 class="card-title-text">Village Story & Recording</h3>
+                </div>
+                <span class="card-badge-soft">Elder Voice</span>
+              </div>
+              <div class="card-body-clean">
+                <div class="elder-profile-box">
+                  <div class="elder-avatar" id="elderAvatarEmoji">👨‍🌾</div>
+                  <div class="elder-meta">
+                    <span class="elder-name" id="elderName">Farmer Ramesh (Village East Ward)</span>
+                    <span class="elder-role" id="elderRole">Organic Vegetable Cultivator & Village Elder</span>
+                    <div class="elder-tags">
+                      <span class="tag-clean" id="elderDialect">Dialect: Khasi / Eastern Hills</span>
+                      <span class="tag-clean" style="color: var(--green-800); font-weight: bold;">Consent Verified ✓</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="friendly-audio-box">
+                  <div class="audio-top-label">
+                    <span>Listen to Story Audio (Offline Whisper)</span>
+                    <span id="audioWer">Accuracy: 96.2%</span>
+                  </div>
+                  <div class="audio-controls">
+                    <button class="play-circle-btn" id="audioPlayBtn" title="Play / Pause Audio">
+                      <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                      <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                    </button>
+                    <div class="waveform-bar-row">
+                      <div class="wave-stick" style="height: 40%;"></div>
+                      <div class="wave-stick" style="height: 75%;"></div>
+                      <div class="wave-stick" style="height: 35%;"></div>
+                      <div class="wave-stick" style="height: 90%;"></div>
+                      <div class="wave-stick" style="height: 60%;"></div>
+                      <div class="wave-stick" style="height: 80%;"></div>
+                      <div class="wave-stick" style="height: 45%;"></div>
+                      <div class="wave-stick" style="height: 85%;"></div>
+                      <div class="wave-stick" style="height: 55%;"></div>
+                      <div class="wave-stick" style="height: 70%;"></div>
+                      <div class="wave-stick" style="height: 30%;"></div>
+                    </div>
+                    <span class="audio-duration" id="audioTimer">0:00 / 0:42</span>
+                  </div>
+                </div>
+
+                <div class="story-quote-card">
+                  <div class="story-quote-title">Spoken Story Excerpt</div>
+                  <p class="story-quote-body" id="storyContextText">
+                    "Farmer Ramesh harvested 24 fresh ripe tomatoes from his terraced hillside plot and distributed them equally across 6 cane baskets."
+                  </p>
+                </div>
               </div>
             </div>
 
-            <!-- Safeguard 2 -->
-            <div class="check-item">
-              <div class="check-icon-circle">✓</div>
-              <div class="check-text">
-                <span class="check-title">100% Accurate Math</span>
-                <span class="check-desc">Exact division verified; zero risk of AI calculation errors.</span>
+            <!-- Card 2: Math Verification -->
+            <div class="dash-card">
+              <div class="card-header-clean">
+                <div class="card-title-group">
+                  <div class="card-icon">📐</div>
+                  <h3 class="card-title-text">Curriculum & Math Check</h3>
+                </div>
+                <span class="card-badge-soft" style="background: var(--green-100); color: var(--green-900);">Class 3 Math</span>
+              </div>
+              <div class="card-body-clean">
+                <div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Learning Competency</span>
+                  <div style="font-size: 1.05rem; font-weight: 800; color: var(--green-950);" id="extractedObjective">
+                    Grade 3 Numeracy: Division as Equal Sharing
+                  </div>
+                  <span style="font-size: 0.76rem; color: var(--text-muted);" id="curriculumMapping">
+                    NCERT Standard M3.04 (Equal Partitioning & Grouping)
+                  </span>
+                </div>
+
+                <div class="math-check-card">
+                  <div class="math-check-top">
+                    <span class="math-calc-large" id="mathBannerCalc">24 ÷ 6 = 4 tomatoes per basket</span>
+                    <span class="math-verified-tag">✓ 100% Correct</span>
+                  </div>
+                  <p class="math-explanation" id="mathExplanation">
+                    Equal sharing confirmed: 24 divided into 6 equal groups leaves 0 remainder. Perfect for foundational Class 3 math.
+                  </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px; border-radius: var(--radius-sm);">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Total Items</span>
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--green-900);" id="summaryItems">24 Tomatoes</div>
+                  </div>
+                  <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px; border-radius: var(--radius-sm);">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Equal Groups</span>
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--green-900);" id="summaryGroups">6 Baskets</div>
+                  </div>
+                </div>
+
+                <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; background: var(--green-50); border: 1px solid var(--green-200); padding: 8px 12px; border-radius: var(--radius-sm);">
+                  💡 <strong>Pedagogy note:</strong> Students will touch and move physical or digital items before writing symbols on paper.
+                </div>
               </div>
             </div>
 
-            <!-- Safeguard 3 -->
-            <div class="check-item pending" id="sg3Item">
-              <div class="check-icon-circle" id="sg3Icon">⏳</div>
-              <div class="check-text">
-                <span class="check-title">Grade & Dialect Fit</span>
-                <span class="check-desc" id="sg3Desc">Waiting for your sign-off as the classroom teacher.</span>
+          </div>
+
+          <!-- Previews of the 3 Learning Stations -->
+          <div class="dash-card">
+            <div class="card-header-clean">
+              <div class="card-title-group">
+                <div class="card-icon">🎒</div>
+                <h3 class="card-title-text">Preview Classroom Activities</h3>
+              </div>
+              <span style="font-size: 0.76rem; color: var(--text-muted);">Preview what your students will do across 3 stations</span>
+            </div>
+
+            <div class="card-body-clean">
+              <div class="preview-tabs-clean">
+                <button class="tab-btn-clean active" data-tab="tab-digital">
+                  <span>📱</span> Station 1: Tablet Activity
+                </button>
+                <button class="tab-btn-clean" data-tab="tab-physical">
+                  <span>🪨</span> Station 2: Floor Seeds & Chalk
+                </button>
+                <button class="tab-btn-clean" data-tab="tab-paper">
+                  <span>📄</span> Station 3: Blackboard & Slate
+                </button>
+              </div>
+
+              <!-- PREVIEW 1: TABLET SCENE SIMULATOR -->
+              <div class="preview-panel" id="tab-digital">
+                <div class="tablet-preview-card">
+                  <div class="tablet-instructions-banner">
+                    <span>Student Task: Share the 24 harvest tomatoes equally into 6 baskets.</span>
+                    <span style="font-weight: 800; color: var(--green-800);" id="simTargetCount">Target: 4 in each basket</span>
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.76rem; font-weight: 700; color: var(--text-main);" id="harvestCrateLabel">Harvest Basket (Unplaced tomatoes):</span>
+                    <span style="font-size: 0.78rem; font-weight: 800; color: var(--tomato-600);" id="remainingCrateCounter">24 remaining</span>
+                  </div>
+                  <div class="crate-area-clean" id="unplacedBin"></div>
+                  <div class="baskets-grid-clean" id="basketsGrid"></div>
+
+                  <div class="interactive-action-row">
+                    <div style="display: flex; gap: 8px;">
+                      <button class="btn-clean btn-outline-neutral" id="scaffoldHintBtn" style="font-size: 0.78rem; padding: 6px 12px;">
+                        💡 Test Hint
+                      </button>
+                      <button class="btn-clean btn-outline-neutral" id="autoSolveBtn" style="font-size: 0.78rem; padding: 6px 12px;">
+                        ⚡ Quick Fill (Demo)
+                      </button>
+                      <button class="btn-clean btn-outline-neutral" id="resetSimBtn" style="font-size: 0.78rem; padding: 6px 12px;">
+                        ↺ Reset
+                      </button>
+                    </div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">
+                      Tip: Click any tomato or basket to try placing items!
+                    </span>
+                  </div>
+
+                  <div id="hintBoxPop" style="display:none; background: var(--amber-50); border: 1px solid var(--amber-600); border-radius: var(--radius-sm); padding: 10px 14px; font-size: 0.78rem; color: var(--amber-700);">
+                    <strong>Student Hint Guide:</strong> <span id="hintMessageText">Try placing 1 tomato into each basket first, then repeat until the harvest crate is empty.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PREVIEW 2: FLOOR ACTIVITY -->
+              <div class="preview-panel" id="tab-physical" style="display:none;">
+                <div class="floor-lesson-card">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; font-weight: 800; color: var(--green-950);">
+                      Hands-On Floor Activity (No Device Required)
+                    </span>
+                    <span class="card-badge-soft">Classroom Mud/Cement Floor</span>
+                  </div>
+
+                  <div class="floor-visual-chalk">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">
+                      Chalk Circles Layout on Floor: 6 Circles with 4 Seeds in Each
+                    </span>
+                    <div class="chalk-circles-row" id="floorCirclesDiagram"></div>
+                  </div>
+
+                  <div class="role-cards-grid">
+                    <div class="role-clean-card">
+                      <span class="role-title">1. The Counter</span>
+                      <span class="role-desc">Counts 24 tamarind seeds or pebbles aloud in the local dialect.</span>
+                    </div>
+                    <div class="role-clean-card">
+                      <span class="role-title">2. The Distributor</span>
+                      <span class="role-desc">Places seeds into each chalk circle one by one.</span>
+                    </div>
+                    <div class="role-clean-card">
+                      <span class="role-title">3. The Checker</span>
+                      <span class="role-desc">Counts each circle to verify equal distribution (4 seeds each).</span>
+                    </div>
+                  </div>
+
+                  <div style="background: var(--green-50); border-left: 4px solid var(--green-600); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--green-900);">
+                    🗣️ <strong>Classroom Explanation Prompt:</strong>
+                    <span id="tactileVerbalPrompt">Have the group say together: "24 seeds divided among 6 circles equals 4 seeds in each circle because 6 times 4 is 24."</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PREVIEW 3: BLACKBOARD & WORKSHEET -->
+              <div class="preview-panel" id="tab-paper" style="display:none;">
+                <div class="worksheet-preview-card">
+                  <div class="worksheet-paper-sheet">
+                    <div class="worksheet-header-clean">
+                      <span>PRIMARY MATH WORKSHEET • CLASS 3</span>
+                      <span>STUDENT NAME: ____________________</span>
+                    </div>
+                    <div class="worksheet-question-box" id="slateProblemText">
+                      <strong>Question 1:</strong> Farmer Ramesh brings 24 tomatoes from his field in 6 cane baskets.<br>
+                      Draw the tomatoes in each basket and write the answer:<br>
+                      Number of tomatoes in each basket = <strong>[ ____ ]</strong>
+                    </div>
+                    <div class="transfer-highlight-box">
+                      <strong>Challenge Question (Independent Thinking):</strong><br>
+                      <span id="slateTransferText">"What if Farmer Ramesh had 30 tomatoes across 5 baskets? Draw and solve on your slate."</span>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">
+                      Teachers can photocopy this worksheet or easily copy it directly onto the blackboard.
+                    </span>
+                    <button class="btn-clean btn-outline-neutral" id="printWorksheetBtn" style="font-size: 0.8rem;">
+                      🖨️ Print Worksheet
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Sticky Teacher Decision Bar -->
+          <div class="bottom-sticky-bar">
+            <div class="action-status-left">
+              <div class="action-status-dot" id="actionStatusDot"></div>
+              <div>
+                <div class="action-status-title" id="actionStatusTitle">Review Pending Teacher Approval</div>
+                <div class="action-status-sub" id="actionStatusSub">Click approve to sync this lesson to student tablets and blackboard guides.</div>
               </div>
             </div>
 
-            <!-- Safeguard 4 -->
-            <div class="check-item pending" id="sg4Item">
-              <div class="check-icon-circle" id="sg4Icon">🔒</div>
-              <div class="check-text">
-                <span class="check-title">Safe Delivery Lock</span>
-                <span class="check-desc" id="sg4Desc">Locked until you approve. Tablets cannot show unreviewed lessons.</span>
-              </div>
-            </div>
-
-            <!-- Safeguard 5 -->
-            <div class="check-item">
-              <div class="check-icon-circle">✓</div>
-              <div class="check-text">
-                <span class="check-title">Elder Credit & Consent</span>
-                <span class="check-desc">Storyteller formally honored; ₹500 stipend recorded.</span>
-              </div>
+            <div class="action-buttons-group">
+              <button class="btn-clean btn-ghost-soft" id="rejectBtn">
+                ✕ Send Back for Changes
+              </button>
+              <button class="btn-clean btn-outline-neutral" id="editParamsBtn">
+                ✏️ Edit Story or Numbers
+              </button>
+              <button class="btn-clean btn-primary-green" id="approveSyncBtn">
+                ✓ Approve & Send to Classroom
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- 15-Minute Station Rotation (Slide 07) -->
-        <div class="station-rotation-widget">
-          <div class="rotation-top-row">
-            <span style="font-size: 0.8rem; font-weight: 800; color: var(--green-950);">
-              Classroom Station Timer
-            </span>
-            <span class="rotation-timer-large" id="rotationTimerDigit">12:24</span>
+        <!-- Sidebar (Quality Safeguards & Station Timer) -->
+        <aside class="sidebar-panel-clean">
+          <div class="sidebar-card-clean">
+            <div class="sidebar-title">
+              <span>5 Quality Safeguards</span>
+              <span class="card-badge-soft" style="font-size: 0.65rem;">Active</span>
+            </div>
+
+            <div class="safeguards-checklist">
+              <div class="check-item">
+                <div class="check-icon-circle">✓</div>
+                <div class="check-text">
+                  <span class="check-title">Child-Safe & Respectful</span>
+                  <span class="check-desc">Appropriate for young children; no sensitive or confusing material.</span>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon-circle">✓</div>
+                <div class="check-text">
+                  <span class="check-title">100% Accurate Math</span>
+                  <span class="check-desc">Exact division verified; zero risk of AI calculation errors.</span>
+                </div>
+              </div>
+              <div class="check-item pending" id="sg3Item">
+                <div class="check-icon-circle" id="sg3Icon">⏳</div>
+                <div class="check-text">
+                  <span class="check-title">Grade & Dialect Fit</span>
+                  <span class="check-desc" id="sg3Desc">Waiting for your sign-off as the classroom teacher.</span>
+                </div>
+              </div>
+              <div class="check-item pending" id="sg4Item">
+                <div class="check-icon-circle" id="sg4Icon">🔒</div>
+                <div class="check-text">
+                  <span class="check-title">Safe Delivery Lock</span>
+                  <span class="check-desc" id="sg4Desc">Locked until you approve. Tablets cannot show unreviewed lessons.</span>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon-circle">✓</div>
+                <div class="check-text">
+                  <span class="check-title">Elder Credit & Consent</span>
+                  <span class="check-desc">Storyteller formally honored; ₹500 stipend recorded.</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35;">
-            Single tablet shared fairly among 30 students in 3 rotating cohorts of 10.
+
+          <div class="station-rotation-widget">
+            <div class="rotation-top-row">
+              <span style="font-size: 0.8rem; font-weight: 800; color: var(--green-950);">
+                Classroom Station Timer
+              </span>
+              <span class="rotation-timer-large" id="rotationTimerDigit">12:24</span>
+            </div>
+            <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35;">
+              Single tablet shared fairly among 30 students in 3 rotating cohorts of 10.
+            </p>
+            <div class="cohort-card-list">
+              <div class="cohort-pill-clean">
+                <strong>Cohort A (10 students)</strong>
+                <span class="station-tag">📱 Station 1: Tablet</span>
+              </div>
+              <div class="cohort-pill-clean">
+                <strong>Cohort B (10 students)</strong>
+                <span class="station-tag">🪨 Station 2: Floor Seeds</span>
+              </div>
+              <div class="cohort-pill-clean">
+                <strong>Cohort C (10 students)</strong>
+                <span class="station-tag">📄 Station 3: Paper Slate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card-clean" style="gap: 8px;">
+            <div class="sidebar-title">
+              <span>₹50,000 Implementation</span>
+              <span style="color: var(--green-700); font-weight: 800; font-size: 0.7rem;">Zero Recurring</span>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">
+              • <strong>₹12,000 (24%)</strong>: Teacher training & elder stipends<br>
+              • <strong>₹18,000 (36%)</strong>: Offline Wi-Fi router, slates & seeds<br>
+              • <strong>₹20,000 (40%)</strong>: 1 rugged tablet & repair escrow
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="space-nav-footer">
+        <button class="btn-clean btn-outline-neutral" id="backToIngestBtn">
+          ← Back to Step 1: Village Story
+        </button>
+        <button class="btn-clean btn-primary-green" id="nextToCurriculumBtn">
+          Next: Step 3 - Curriculum Verification →
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SPACE 3: CURRICULUM VERIFICATION & PEDAGOGY ALIGNMENT
+         ====================================================================== -->
+    <section class="step-space-view" id="space-curriculum">
+      <div class="space-header-banner">
+        <div>
+          <h2 class="space-header-title">Step 3: Curriculum Mapping & Pedagogical Guardrails</h2>
+          <p class="space-header-sub">Ensuring deep alignment with NCERT Class 3 foundational competencies and anti-cheating pedagogy.</p>
+        </div>
+        <span class="card-badge-soft" style="background: var(--green-100); color: var(--green-900);">NCERT FLN Compliant</span>
+      </div>
+
+      <!-- Competency Matrix Card -->
+      <div class="dash-card">
+        <div class="card-header-clean">
+          <div class="card-title-group">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title-text">NCERT Foundational Competency Alignment</h3>
+          </div>
+          <span class="card-badge-soft">Class 3 Mathematics</span>
+        </div>
+        <div class="card-body-clean">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div style="background: var(--green-50); border: 1px solid var(--green-200); padding: 14px; border-radius: var(--radius-md);">
+              <span style="font-size: 0.7rem; font-weight: 800; color: var(--green-800); text-transform: uppercase;">Standard Code</span>
+              <div style="font-size: 1.15rem; font-weight: 800; color: var(--green-950); margin: 4px 0;">NCERT M3.04</div>
+              <p style="font-size: 0.74rem; color: var(--text-muted);">Division as equal distribution and fair sharing among disjoint sets.</p>
+            </div>
+            <div style="background: var(--green-50); border: 1px solid var(--green-200); padding: 14px; border-radius: var(--radius-md);">
+              <span style="font-size: 0.7rem; font-weight: 800; color: var(--green-800); text-transform: uppercase;">Cognitive Level</span>
+              <div style="font-size: 1.15rem; font-weight: 800; color: var(--green-950); margin: 4px 0;">Concrete → Abstract</div>
+              <p style="font-size: 0.74rem; color: var(--text-muted);">Moving from physical counters (seeds/tomatoes) to symbolic equations.</p>
+            </div>
+            <div style="background: var(--green-50); border: 1px solid var(--green-200); padding: 14px; border-radius: var(--radius-md);">
+              <span style="font-size: 0.7rem; font-weight: 800; color: var(--green-800); text-transform: uppercase;">National Benchmark</span>
+              <div style="font-size: 1.15rem; font-weight: 800; color: var(--green-950); margin: 4px 0;">NIPUN Bharat FLN</div>
+              <p style="font-size: 0.74rem; color: var(--text-muted);">Foundational numeracy target: child solves simple division up to 50.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-Phase Active Pedagogy Journey (Slide 05) -->
+      <div class="dash-card">
+        <div class="card-header-clean">
+          <div class="card-title-group">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title-text">The 4-Stage Active Pedagogy Pathway (Slide 05)</h3>
+          </div>
+          <span class="card-badge-soft">Anti-Cheat by Design</span>
+        </div>
+        <div class="card-body-clean">
+          <div class="pedagogy-phases-grid">
+            <div class="phase-step-card">
+              <span class="phase-number-tag">Phase 1</span>
+              <h4 class="phase-title">01 [Explore]</h4>
+              <p class="phase-desc">Children observe familiar harvest context (24 tomatoes, 6 baskets) without pre-calculated answers or formulas.</p>
+              <div class="phase-rule-quote">"Attempt before hint: System withholds prompts until student makes an authentic trial."</div>
+            </div>
+            <div class="phase-step-card">
+              <span class="phase-number-tag">Phase 2</span>
+              <h4 class="phase-title">02 [Attempt]</h4>
+              <p class="phase-desc">Active tactile and digital distribution. Non-judgmental nudge highlights unequal groups rather than giving the solution.</p>
+              <div class="phase-rule-quote">"Hint is a scaffold, not the answer: AI acts as a mirror, never an automated answer engine."</div>
+            </div>
+            <div class="phase-step-card">
+              <span class="phase-number-tag">Phase 3</span>
+              <h4 class="phase-title">03 [Explain]</h4>
+              <p class="phase-desc">Students articulate to group mates and teacher why the distribution works ("24 divided among 6 means 4 each") in local dialect.</p>
+              <div class="phase-rule-quote">"Retention solidifies through verbal justification and social peer learning."</div>
+            </div>
+            <div class="phase-step-card">
+              <span class="phase-number-tag">Phase 4</span>
+              <h4 class="phase-title">04 [Transfer]</h4>
+              <p class="phase-desc">Solving novel transfer variations (e.g. 30 tomatoes across 5 baskets) unassisted on paper or slate to prove true cognitive transfer.</p>
+              <div class="phase-rule-quote">"Guarantees conceptual mastery over rote memory or passive guessing."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pedagogical Safeguards Card -->
+      <div class="dash-card">
+        <div class="card-header-clean">
+          <div class="card-title-group">
+            <div class="card-icon">🛡️</div>
+            <h3 class="card-title-text">Pedagogical Guardrails Summary</h3>
+          </div>
+          <span class="card-badge-soft">Verified</span>
+        </div>
+        <div class="card-body-clean">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="font-size: 0.82rem; color: var(--green-950);">Zero Video Lectures</strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">No passive watching; students learn through hands-on manipulation and peer discussion.</p>
+            </div>
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="font-size: 0.82rem; color: var(--green-950);">Zero Hallucinated Math</strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">All arithmetic is verified with deterministic logic before rendering any materials.</p>
+            </div>
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="font-size: 0.82rem; color: var(--green-950);">Multi-Grade Diversity</strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">Adapts to mixed-age classrooms where baseline numeracy and language proficiencies vary.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-nav-footer">
+        <button class="btn-clean btn-outline-neutral" id="backToReviewFromCurrBtn">
+          ← Back to Step 2: Teacher Review
+        </button>
+        <button class="btn-clean btn-primary-green" id="nextToClassroomBtn">
+          Next: Step 4 - Ready for Classroom →
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SPACE 4: CLASSROOM DELIVERY & 3-STATION HUB
+         ====================================================================== -->
+    <section class="step-space-view" id="space-classroom">
+      <div class="space-header-banner">
+        <div>
+          <h2 class="space-header-title">Step 4: Classroom Deployment & Station Hub</h2>
+          <p class="space-header-sub">Overcoming device scarcity: 1 laptop and 1 tablet powering 30 students across 3 concurrent stations.</p>
+        </div>
+        <span class="card-badge-soft" style="background: var(--green-100); color: var(--green-900);">Live Station Controller</span>
+      </div>
+
+      <!-- 3 Concurrent Station Cards -->
+      <div class="stations-hub-grid">
+        <!-- Station 1: Tablet -->
+        <div class="live-station-card active-station">
+          <div class="station-card-top">
+            <span class="station-badge-pill">📱 Station 1: Shared Device</span>
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--green-700);">ONLINE</span>
+          </div>
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--green-950);">Interactive Tablet Activity</h4>
+          <p style="font-size: 0.74rem; color: var(--text-muted);">
+            Rugged offline tablet running the harvest manipulative (24 tomatoes, 6 baskets).
           </p>
-          <div class="cohort-card-list">
-            <div class="cohort-pill-clean">
-              <strong>Cohort A (10 students)</strong>
-              <span class="station-tag">📱 Station 1: Tablet</span>
-            </div>
-            <div class="cohort-pill-clean">
-              <strong>Cohort B (10 students)</strong>
-              <span class="station-tag">🪨 Station 2: Floor Seeds</span>
-            </div>
-            <div class="cohort-pill-clean">
-              <strong>Cohort C (10 students)</strong>
-              <span class="station-tag">📄 Station 3: Paper Slate</span>
-            </div>
+          <div class="station-cohort-indicator">
+            <span>Currently Active:</span>
+            <strong>Cohort A (10 Students)</strong>
           </div>
+          <button class="btn-clean btn-outline-neutral" id="jumpToTabletFromClassBtn" style="font-size: 0.76rem; padding: 6px 10px;">
+            Preview Tablet Screen →
+          </button>
         </div>
 
-        <!-- Case Budget Reminder (Slide 09) -->
-        <div class="sidebar-card-clean" style="gap: 8px;">
-          <div class="sidebar-title">
-            <span>₹50,000 Implementation</span>
-            <span style="color: var(--green-700); font-weight: 800; font-size: 0.7rem;">Zero Recurring</span>
+        <!-- Station 2: Floor Seeds -->
+        <div class="live-station-card">
+          <div class="station-card-top">
+            <span class="station-badge-pill">🪨 Station 2: Physical Floor</span>
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--green-700);">READY</span>
           </div>
-          <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">
-            • <strong>₹12,000 (24%)</strong>: Teacher training & elder stipends<br>
-            • <strong>₹18,000 (36%)</strong>: Offline Wi-Fi router, slates & seeds<br>
-            • <strong>₹20,000 (40%)</strong>: 1 rugged tablet & repair escrow
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--green-950);">Seeds & Chalk Circles</h4>
+          <p style="font-size: 0.74rem; color: var(--text-muted);">
+            Screen-free station with 24 tamarind seeds and 6 chalk circles drawn on classroom mud floor.
+          </p>
+          <div class="station-cohort-indicator">
+            <span>Currently Active:</span>
+            <strong>Cohort B (10 Students)</strong>
           </div>
+          <button class="btn-clean btn-outline-neutral" id="jumpToFloorFromClassBtn" style="font-size: 0.76rem; padding: 6px 10px;">
+            View Floor Activity Guide →
+          </button>
         </div>
 
-      </aside>
+        <!-- Station 3: Blackboard & Slates -->
+        <div class="live-station-card">
+          <div class="station-card-top">
+            <span class="station-badge-pill">📄 Station 3: Evaluation</span>
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--green-700);">PRINTED</span>
+          </div>
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--green-950);">Blackboard & Slates</h4>
+          <p style="font-size: 0.74rem; color: var(--text-muted);">
+            Printable worksheets and blackboard stencils featuring the unassisted transfer problem.
+          </p>
+          <div class="station-cohort-indicator">
+            <span>Currently Active:</span>
+            <strong>Cohort C (10 Students)</strong>
+          </div>
+          <button class="btn-clean btn-outline-neutral" id="printFromClassroomBtn" style="font-size: 0.76rem; padding: 6px 10px;">
+            🖨️ Print Worksheets
+          </button>
+        </div>
+      </div>
 
-    </div>
+      <!-- 15-Minute Station Rotation Master Controller -->
+      <div class="dash-card">
+        <div class="card-header-clean">
+          <div class="card-title-group">
+            <div class="card-icon">⏱️</div>
+            <h3 class="card-title-text">15-Minute Station Rotation Master Clock</h3>
+          </div>
+          <span class="card-badge-soft">Rotational Triad (Slide 07)</span>
+        </div>
+        <div class="card-body-clean">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: var(--green-50); border: 1px solid var(--green-200); padding: 18px 24px; border-radius: var(--radius-lg);">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--green-800); text-transform: uppercase;">Active Rotation Window</span>
+              <div style="font-size: 2rem; font-weight: 900; color: var(--green-950); font-variant-numeric: tabular-nums;" id="masterClockDisplay">
+                12:24
+              </div>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Next rotation: Cohort A → Floor, Cohort B → Slate, Cohort C → Tablet</span>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-clean btn-outline-neutral" id="pauseClockBtn">
+                ⏸ Pause Timer
+              </button>
+              <button class="btn-clean btn-primary-green" id="resetClockBtn">
+                ↺ Reset 15 Min
+              </button>
+            </div>
+          </div>
+
+          <!-- Capacity Bottleneck Calculation (Slide 07) -->
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 14px 18px; border-radius: var(--radius-md); font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+            <strong>Hardware Math & Why Station Rotation Works:</strong> 30 students × 10 min screen time = 300 device-minutes demanded. A single tablet in a 45-min period provides only 45 available minutes (a 255-minute deficit). By rotating 3 cohorts of 10 students across Digital, Physical, and Slate stations every 15 minutes, 100% of students receive complete curriculum coverage with zero waiting!
+          </div>
+        </div>
+      </div>
+
+      <div class="space-nav-footer">
+        <button class="btn-clean btn-outline-neutral" id="backToCurrFromClassBtn">
+          ← Back to Step 3: Curriculum
+        </button>
+        <button class="btn-clean btn-primary-green" id="returnToReviewBtn">
+          Return to Step 2: Teacher Review & Approve →
+        </button>
+      </div>
+    </section>
 
   </main>
 

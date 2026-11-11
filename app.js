@@ -1,6 +1,7 @@
 /**
  * ROOTS | Teacher Review & Approval Portal
  * Modern, Professional, Teacher-First Interactive Engine
+ * Multi-Space Stepper Navigation (Steps 1, 2, 3, 4)
  * Light Green Aesthetic (IIM Shillong & biTeSys Case Brief)
  */
 
@@ -15,6 +16,7 @@ const STORIES = [
       dialect: "Khasi / Eastern Hills"
     },
     story_raw: "Farmer Ramesh harvested 24 fresh ripe tomatoes from his terraced hillside plot and distributed them equally across 6 cane baskets.",
+    dialect_text: "U nongrep Ramesh u la lum 24 tylli ki soh saw na lyngkha bad u la sam mar ryngkat ha ki 6 tylli ki shang khlem pynkheiñ iano iano.",
     audio_meta: {
       duration: 42,
       duration_label: "0:42",
@@ -44,6 +46,7 @@ const STORIES = [
       dialect: "Khasi / Hill Craft Dialect"
     },
     story_raw: "Artisan Meera gathered 18 seasoned bamboo splints and arranged them into 3 triangular frames to balance the weaving tension.",
+    dialect_text: "Ka Meera ka la lum 18 tylli ki shylliah siej bad ka la pyniaid mar ryngkat ha ki 3 tylli ki dur khyllah ban pynkhlaiñ ia ka thain.",
     audio_meta: {
       duration: 38,
       duration_label: "0:38",
@@ -73,6 +76,7 @@ const STORIES = [
       dialect: "Local River Valley Dialect"
     },
     story_raw: "Elder Sonam harvested 40 kilograms of winter potatoes and packed them into 4 identical jute sacks for transport.",
+    dialect_text: "U kpa Sonam u la pynkhreh 40 kilo ki phan tlang bad u la thep mar katjuh ha ki 4 tylli ki pla ba la thain bha.",
     audio_meta: {
       duration: 51,
       duration_label: "0:51",
@@ -105,7 +109,9 @@ const state = {
   audioSeconds: 0,
   audioTimerInterval: null,
   stopwatchSeconds: 102, // 1 min 42 sec
-  rotationSeconds: 744   // 12 min 24 sec
+  rotationSeconds: 744,  // 12 min 24 sec
+  isClockPaused: false,
+  activeSpace: "space-review"
 };
 
 // ============================================================================
@@ -153,12 +159,39 @@ function playSuccessChime() {
 // ============================================================================
 const dom = {
   auditStopwatch: document.getElementById("auditStopwatch"),
+
+  // Stepper Cards
+  stepCards: document.querySelectorAll(".step-card"),
   step1: document.getElementById("step1"),
   step2: document.getElementById("step2"),
   step3: document.getElementById("step3"),
   step4: document.getElementById("step4"),
 
-  // Elder Profile
+  // Dedicated Spaces
+  spaces: {
+    "space-ingest": document.getElementById("space-ingest"),
+    "space-review": document.getElementById("space-review"),
+    "space-curriculum": document.getElementById("space-curriculum"),
+    "space-classroom": document.getElementById("space-classroom")
+  },
+
+  // Space 1: Ingest Elements
+  ingestElderAvatar: document.getElementById("ingestElderAvatar"),
+  ingestElderName: document.getElementById("ingestElderName"),
+  ingestElderRole: document.getElementById("ingestElderRole"),
+  ingestElderDialect: document.getElementById("ingestElderDialect"),
+  ingestAudioWer: document.getElementById("ingestAudioWer"),
+  ingestAudioTimer: document.getElementById("ingestAudioTimer"),
+  ingestAudioPlayBtn: document.getElementById("ingestAudioPlayBtn"),
+  ingestPlayIcon: document.getElementById("ingestPlayIcon"),
+  ingestPauseIcon: document.getElementById("ingestPauseIcon"),
+  ingestDialectText: document.getElementById("ingestDialectText"),
+  ingestEnglishText: document.getElementById("ingestEnglishText"),
+  ingestEntitiesSummary: document.getElementById("ingestEntitiesSummary"),
+  nextToReviewBtn: document.getElementById("nextToReviewBtn"),
+  goToReviewFromIngestBtn: document.getElementById("goToReviewFromIngestBtn"),
+
+  // Space 2: Review Elements
   elderAvatarEmoji: document.getElementById("elderAvatarEmoji"),
   elderName: document.getElementById("elderName"),
   elderRole: document.getElementById("elderRole"),
@@ -170,7 +203,6 @@ const dom = {
   audioTimer: document.getElementById("audioTimer"),
   storyContextText: document.getElementById("storyContextText"),
 
-  // Math Check
   extractedObjective: document.getElementById("extractedObjective"),
   curriculumMapping: document.getElementById("curriculumMapping"),
   mathBannerCalc: document.getElementById("mathBannerCalc"),
@@ -178,13 +210,11 @@ const dom = {
   summaryItems: document.getElementById("summaryItems"),
   summaryGroups: document.getElementById("summaryGroups"),
 
-  // Previews
   tabDigital: document.getElementById("tab-digital"),
   tabPhysical: document.getElementById("tab-physical"),
   tabPaper: document.getElementById("tab-paper"),
   tabBtns: document.querySelectorAll(".tab-btn-clean"),
 
-  // Tab 1: Tablet
   simTargetCount: document.getElementById("simTargetCount"),
   harvestCrateLabel: document.getElementById("harvestCrateLabel"),
   remainingCrateCounter: document.getElementById("remainingCrateCounter"),
@@ -196,16 +226,13 @@ const dom = {
   hintBoxPop: document.getElementById("hintBoxPop"),
   hintMessageText: document.getElementById("hintMessageText"),
 
-  // Tab 2: Floor
   floorCirclesDiagram: document.getElementById("floorCirclesDiagram"),
   tactileVerbalPrompt: document.getElementById("tactileVerbalPrompt"),
 
-  // Tab 3: Worksheet
   slateProblemText: document.getElementById("slateProblemText"),
   slateTransferText: document.getElementById("slateTransferText"),
   printWorksheetBtn: document.getElementById("printWorksheetBtn"),
 
-  // Action Bar
   actionStatusDot: document.getElementById("actionStatusDot"),
   actionStatusTitle: document.getElementById("actionStatusTitle"),
   actionStatusSub: document.getElementById("actionStatusSub"),
@@ -213,7 +240,6 @@ const dom = {
   editParamsBtn: document.getElementById("editParamsBtn"),
   rejectBtn: document.getElementById("rejectBtn"),
 
-  // Sidebar
   sg3Item: document.getElementById("sg3Item"),
   sg3Icon: document.getElementById("sg3Icon"),
   sg3Desc: document.getElementById("sg3Desc"),
@@ -221,6 +247,23 @@ const dom = {
   sg4Icon: document.getElementById("sg4Icon"),
   sg4Desc: document.getElementById("sg4Desc"),
   rotationTimerDigit: document.getElementById("rotationTimerDigit"),
+
+  backToIngestBtn: document.getElementById("backToIngestBtn"),
+  nextToCurriculumBtn: document.getElementById("nextToCurriculumBtn"),
+
+  // Space 3: Curriculum Nav
+  backToReviewFromCurrBtn: document.getElementById("backToReviewFromCurrBtn"),
+  nextToClassroomBtn: document.getElementById("nextToClassroomBtn"),
+
+  // Space 4: Classroom Nav & Controls
+  masterClockDisplay: document.getElementById("masterClockDisplay"),
+  pauseClockBtn: document.getElementById("pauseClockBtn"),
+  resetClockBtn: document.getElementById("resetClockBtn"),
+  backToCurrFromClassBtn: document.getElementById("backToCurrFromClassBtn"),
+  returnToReviewBtn: document.getElementById("returnToReviewBtn"),
+  jumpToTabletFromClassBtn: document.getElementById("jumpToTabletFromClassBtn"),
+  jumpToFloorFromClassBtn: document.getElementById("jumpToFloorFromClassBtn"),
+  printFromClassroomBtn: document.getElementById("printFromClassroomBtn"),
 
   // Modals
   editParamsModal: document.getElementById("editParamsModal"),
@@ -248,12 +291,48 @@ const dom = {
 };
 
 // ============================================================================
+// NAVIGATION & SPACE SWITCHING
+// ============================================================================
+function switchSpace(spaceId) {
+  if (!dom.spaces[spaceId]) return;
+  state.activeSpace = spaceId;
+
+  // Toggle active class on views
+  Object.keys(dom.spaces).forEach(id => {
+    dom.spaces[id].classList.toggle("active", id === spaceId);
+  });
+
+  // Update Stepper Cards active indicator
+  dom.stepCards.forEach(card => {
+    const cardSpace = card.getAttribute("data-space");
+    card.classList.toggle("active", cardSpace === spaceId);
+  });
+
+  // Smooth scroll to top of workspace
+  window.scrollTo({ top: 180, behavior: 'smooth' });
+
+  // Update hash
+  const hash = spaceId.replace("space-", "");
+  if (history.replaceState) {
+    history.replaceState(null, null, `#${hash}`);
+  }
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 function init() {
   loadStory(state.currentStory);
   setupTimers();
   setupEventListeners();
+
+  // Check URL hash on load
+  const hash = window.location.hash.replace("#", "");
+  if (hash && dom.spaces[`space-${hash}`]) {
+    switchSpace(`space-${hash}`);
+  } else {
+    switchSpace("space-review");
+  }
 }
 
 function loadStory(story) {
@@ -265,7 +344,21 @@ function loadStory(story) {
     state.placedItems[i] = [];
   }
 
-  // Update Elder Card
+  const pluralItem = (story.item_name === "tomato") ? "tomatoes" : (story.item_name === "potato (kg)") ? "kg potatoes" : `${story.item_name}s`;
+  const pluralGroup = (story.group_name === "frame") ? "frames" : (story.group_name === "jute sack") ? "jute sacks" : `${story.group_name}s`;
+
+  // Update Space 1: Ingest Elements
+  dom.ingestElderAvatar.textContent = story.contributor.avatar;
+  dom.ingestElderName.textContent = story.contributor.name;
+  dom.ingestElderRole.textContent = story.contributor.role;
+  dom.ingestElderDialect.textContent = `Dialect: ${story.contributor.dialect}`;
+  dom.ingestAudioWer.textContent = story.audio_meta.wer;
+  dom.ingestAudioTimer.textContent = `0:00 / ${story.audio_meta.duration_label}`;
+  dom.ingestDialectText.textContent = `"${story.dialect_text || story.story_raw}"`;
+  dom.ingestEnglishText.textContent = `"${story.story_raw}"`;
+  dom.ingestEntitiesSummary.textContent = `${story.items} ${pluralItem} partitioned across ${story.groups} ${pluralGroup} (Equal Sharing)`;
+
+  // Update Space 2: Review Elements
   dom.elderAvatarEmoji.textContent = story.contributor.avatar;
   dom.elderName.textContent = story.contributor.name;
   dom.elderRole.textContent = story.contributor.role;
@@ -275,15 +368,11 @@ function loadStory(story) {
   dom.audioTimer.textContent = `0:00 / ${story.audio_meta.duration_label}`;
   stopAudio();
 
-  // Update Curriculum & Math Card
   const quotient = Math.floor(story.items / story.groups);
   const remainder = story.items % story.groups;
 
   dom.extractedObjective.textContent = story.curriculum.grade;
   dom.curriculumMapping.textContent = story.curriculum.standard;
-
-  const pluralItem = (story.item_name === "tomato") ? "tomatoes" : (story.item_name === "potato (kg)") ? "kg potatoes" : `${story.item_name}s`;
-  const pluralGroup = (story.group_name === "frame") ? "frames" : (story.group_name === "jute sack") ? "jute sacks" : `${story.group_name}s`;
 
   if (remainder === 0) {
     dom.mathBannerCalc.textContent = `${story.items} ÷ ${story.groups} = ${quotient} ${pluralItem} per ${story.group_name}`;
@@ -329,7 +418,7 @@ function resetApprovalUI() {
   dom.actionStatusSub.textContent = "Click approve to sync this lesson to student tablets and blackboard guides.";
 
   dom.approveSyncBtn.innerHTML = `✓ Approve & Send to Classroom`;
-  dom.approveSyncBtn.classList.remove("approved");
+  dom.approveSyncBtn.style.background = "";
 }
 
 // ============================================================================
@@ -507,8 +596,12 @@ function toggleAudio() {
 
 function startAudio() {
   state.isPlayingAudio = true;
+  // Update both buttons
   dom.playIcon.style.display = "none";
   dom.pauseIcon.style.display = "block";
+  if (dom.ingestPlayIcon) dom.ingestPlayIcon.style.display = "none";
+  if (dom.ingestPauseIcon) dom.ingestPauseIcon.style.display = "block";
+
   document.querySelectorAll(".wave-stick").forEach(w => w.classList.add("active"));
 
   if ('speechSynthesis' in window) {
@@ -524,7 +617,9 @@ function startAudio() {
     state.audioSeconds++;
     const m = Math.floor(state.audioSeconds / 60);
     const s = (state.audioSeconds % 60).toString().padStart(2, '0');
-    dom.audioTimer.textContent = `${m}:${s} / ${state.currentStory.audio_meta.duration_label}`;
+    const timeStr = `${m}:${s} / ${state.currentStory.audio_meta.duration_label}`;
+    dom.audioTimer.textContent = timeStr;
+    if (dom.ingestAudioTimer) dom.ingestAudioTimer.textContent = timeStr;
     if (state.audioSeconds >= maxSec) stopAudio();
   }, 1000);
 }
@@ -535,6 +630,9 @@ function stopAudio() {
   state.audioSeconds = 0;
   dom.playIcon.style.display = "block";
   dom.pauseIcon.style.display = "none";
+  if (dom.ingestPlayIcon) dom.ingestPlayIcon.style.display = "block";
+  if (dom.ingestPauseIcon) dom.ingestPauseIcon.style.display = "none";
+
   document.querySelectorAll(".wave-stick").forEach(w => w.classList.remove("active"));
   if ('speechSynthesis' in window) window.speechSynthesis.cancel();
 }
@@ -553,16 +651,20 @@ function setupTimers() {
 
   // 15-Minute Station Rotation
   setInterval(() => {
-    if (state.rotationSeconds > 0) {
-      state.rotationSeconds--;
-    } else {
-      state.rotationSeconds = 900;
-      playSuccessChime();
-      showToast("🔔 15-Minute Station Rotation Time! Cohorts switch stations.");
+    if (!state.isClockPaused) {
+      if (state.rotationSeconds > 0) {
+        state.rotationSeconds--;
+      } else {
+        state.rotationSeconds = 900;
+        playSuccessChime();
+        showToast("🔔 15-Minute Station Rotation Time! Cohorts switch stations.");
+      }
+      const m = Math.floor(state.rotationSeconds / 60).toString().padStart(2, '0');
+      const s = (state.rotationSeconds % 60).toString().padStart(2, '0');
+      const timeStr = `${m}:${s}`;
+      dom.rotationTimerDigit.textContent = timeStr;
+      if (dom.masterClockDisplay) dom.masterClockDisplay.textContent = timeStr;
     }
-    const m = Math.floor(state.rotationSeconds / 60).toString().padStart(2, '0');
-    const s = (state.rotationSeconds % 60).toString().padStart(2, '0');
-    dom.rotationTimerDigit.textContent = `${m}:${s}`;
   }, 1000);
 }
 
@@ -572,13 +674,11 @@ function setupTimers() {
 function approveLesson() {
   state.isApproved = true;
 
-  // Stepper marks all done
   dom.step1.className = "step-card done";
   dom.step2.className = "step-card done";
   dom.step3.className = "step-card done";
   dom.step4.className = "step-card active";
 
-  // Safeguards unlocked
   dom.sg3Item.className = "check-item";
   dom.sg3Icon.textContent = "✓";
   dom.sg3Desc.textContent = "Signed off by Teacher Ananya. Verified for Class 3.";
@@ -587,7 +687,6 @@ function approveLesson() {
   dom.sg4Icon.textContent = "✓";
   dom.sg4Desc.textContent = "Unlocked & Synced! Station 1 Tablet, Station 2 Floor & Blackboard Ready.";
 
-  // Bottom bar status
   dom.actionStatusDot.className = "action-status-dot approved";
   dom.actionStatusTitle.textContent = "Lesson Approved & Sent to Classroom";
   dom.actionStatusSub.textContent = "Active across Station 1 (Tablet), Station 2 (Floor Seeds) & Station 3 (Blackboard).";
@@ -603,10 +702,93 @@ function approveLesson() {
 // EVENT LISTENERS & MODALS
 // ============================================================================
 function setupEventListeners() {
-  // Audio Play
-  dom.audioPlayBtn.addEventListener("click", toggleAudio);
+  // Stepper Cards Click -> Navigate to Space
+  dom.stepCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const space = card.getAttribute("data-space");
+      switchSpace(space);
+    });
 
-  // Tabs
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const space = card.getAttribute("data-space");
+        switchSpace(space);
+      }
+    });
+  });
+
+  // Space 1 Nav Buttons
+  if (dom.nextToReviewBtn) {
+    dom.nextToReviewBtn.addEventListener("click", () => switchSpace("space-review"));
+  }
+  if (dom.goToReviewFromIngestBtn) {
+    dom.goToReviewFromIngestBtn.addEventListener("click", () => switchSpace("space-review"));
+  }
+
+  // Space 2 Nav Buttons
+  if (dom.backToIngestBtn) {
+    dom.backToIngestBtn.addEventListener("click", () => switchSpace("space-ingest"));
+  }
+  if (dom.nextToCurriculumBtn) {
+    dom.nextToCurriculumBtn.addEventListener("click", () => switchSpace("space-curriculum"));
+  }
+
+  // Space 3 Nav Buttons
+  if (dom.backToReviewFromCurrBtn) {
+    dom.backToReviewFromCurrBtn.addEventListener("click", () => switchSpace("space-review"));
+  }
+  if (dom.nextToClassroomBtn) {
+    dom.nextToClassroomBtn.addEventListener("click", () => switchSpace("space-classroom"));
+  }
+
+  // Space 4 Nav Buttons & Controller
+  if (dom.backToCurrFromClassBtn) {
+    dom.backToCurrFromClassBtn.addEventListener("click", () => switchSpace("space-curriculum"));
+  }
+  if (dom.returnToReviewBtn) {
+    dom.returnToReviewBtn.addEventListener("click", () => switchSpace("space-review"));
+  }
+  if (dom.jumpToTabletFromClassBtn) {
+    dom.jumpToTabletFromClassBtn.addEventListener("click", () => {
+      switchSpace("space-review");
+      dom.tabBtns[0].click();
+    });
+  }
+  if (dom.jumpToFloorFromClassBtn) {
+    dom.jumpToFloorFromClassBtn.addEventListener("click", () => {
+      switchSpace("space-review");
+      dom.tabBtns[1].click();
+    });
+  }
+  if (dom.printFromClassroomBtn) {
+    dom.printFromClassroomBtn.addEventListener("click", () => window.print());
+  }
+
+  // Clock Controls
+  if (dom.pauseClockBtn) {
+    dom.pauseClockBtn.addEventListener("click", () => {
+      state.isClockPaused = !state.isClockPaused;
+      dom.pauseClockBtn.textContent = state.isClockPaused ? "▶ Resume Timer" : "⏸ Pause Timer";
+      showToast(state.isClockPaused ? "Station timer paused." : "Station timer resumed.");
+    });
+  }
+  if (dom.resetClockBtn) {
+    dom.resetClockBtn.addEventListener("click", () => {
+      state.rotationSeconds = 900;
+      dom.rotationTimerDigit.textContent = "15:00";
+      dom.masterClockDisplay.textContent = "15:00";
+      showToast("Station rotation timer reset to 15:00.");
+    });
+  }
+
+  // Audio Play Buttons (both Space 1 and Space 2)
+  dom.audioPlayBtn.addEventListener("click", toggleAudio);
+  if (dom.ingestAudioPlayBtn) {
+    dom.ingestAudioPlayBtn.addEventListener("click", toggleAudio);
+  }
+
+  // Preview Tabs (Inside Space 2)
   dom.tabBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       dom.tabBtns.forEach(b => b.classList.remove("active"));
@@ -703,6 +885,7 @@ function setupEventListeners() {
         dialect: "Local Village Dialect"
       },
       story_raw: text,
+      dialect_text: text,
       audio_meta: { duration: 35, duration_label: "0:35", wer: "Accuracy: 97.5%" },
       items,
       groups,

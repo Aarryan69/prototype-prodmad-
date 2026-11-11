@@ -1,86 +1,79 @@
 # ROOTS — Living Lesson Engine
-### Teacher Review & Approval Portal (ProdMad 6.0 Slide 06 Prototype)
+### Multi-Space Teacher Review & Approval Portal (ProdMad 6.0 Prototype)
 **Case Study: "The Village Beyond the Signal"**  
 *Organized by IIM Shillong & biTeSys*
 
-![ROOTS Teacher Dashboard](screenshot_teacher_light.png)
-*Clean, light-green teacher dashboard designed specifically for primary school educators in rural mountain villages.*
-
-![Approved Lesson State](screenshot_approved_bottom.png)
-*Post-approval state: 24 tomatoes partitioned equally into 6 baskets (4 in each), with instant broadcast to student tablets, floor seeds, and blackboard.*
+![ROOTS Step 2 Review](screenshot_space_2_review.png)
+*Step 2 (Core Hero): Interactive Teacher Review & Output Previews with light-green aesthetic.*
 
 ---
 
-## 🌿 Design Rationale: Light Green Aesthetic & Teacher-First Usability
-Rooted in the **IIM Shillong & biTeSys case study**, this prototype is designed from the ground up for a **primary school teacher**:
-- **Fresh Light Green Aesthetic**: Soothing leafy tones (`#15803d`, `#16a34a`, `#dcfce7`, `#f0fdf4`) that feel educational, welcoming, and gentle on the eyes.
-- **Zero Technical Jargon**: No raw code snippets, syntax dumps, or confusing developer terms. Everything is presented in clear, reassuring, classroom-ready terms:
-  - *"Math Check: 24 ÷ 6 = 4 tomatoes per basket (100% correct, zero errors)"*
-  - *"Class 3 NCERT Standard M3.04 (Equal Partitioning & Grouping)"*
-  - *"5 Quality & Safety Safeguards: All verified"*
-- **Human-in-the-Loop Governance (Slide 06)**: The teacher holds absolute authority to inspect the story, test student activities, edit numbers, and approve or reject before anything reaches children.
+## 🗺️ 4 Dedicated Clickable Spaces
+The top workflow stepper is now **fully interactive and clickable**. Clicking any of the 4 steps smoothly navigates to its own dedicated workspace:
+
+| Step | Dedicated Space | What the Teacher Can Do |
+| :--- | :--- | :--- |
+| **1** | [**`1. Village Story Ingested`**](screenshot_space_1_ingest.png) | Inspect the storyteller profile, listen to the offline audio recording with animated waveform, view the bilingual dialect translation (Khasi <-> English), and check the community honorarium log. |
+| **2** | [**`2. Teacher Review (Now)`**](screenshot_space_2_review.png) | The **Slide 06 Core Hero Interface**: Verify math calculation accuracy (`24 ÷ 6 = 4 tomatoes per basket`), test the interactive tablet simulation (drag/click 24 tomatoes into 6 baskets), preview the floor seed activity and blackboard worksheet, and click **Approve & Send to Classroom**. |
+| **3** | [**`3. Curriculum Verification`**](screenshot_space_3_curriculum.png) | Check the **NCERT Class 3 Foundational Competencies (M3.04)**, inspect the **4-Stage Active Pedagogy Pathway** (*Explore → Attempt → Explain → Transfer* from Slide 05), and review anti-cheating guardrails. |
+| **4** | [**`4. Ready for Classroom`**](screenshot_space_4_classroom.png) | Manage the **3 Concurrent Classroom Stations** (Tablet, Floor Seeds, Blackboard), run the **15-Minute Station Rotation Master Clock** (with Pause/Reset controls), print student worksheets, and inspect offline intranet topology. |
 
 ---
 
-## 🎒 The 3 Classroom Learning Formats (Tri-Modal Preview)
-Because the village school has **only 1 shared laptop and 1 tablet for 30 students**, the lesson is delivered across 3 simultaneous stations (Slide 07):
+## 📸 Screenshots of All 4 Spaces
 
-1. 📱 **Station 1: Interactive Tablet Activity**:
-   - A cheerful digital manipulative where students share 24 harvest tomatoes into 6 cane baskets.
-   - Live visual counter (`4/4`) with gentle celebratory audio when all baskets are equally filled.
-   - Scaffolded hints that guide the student without giving away the answer.
-2. 🪨 **Station 2: Floor Seeds & Chalk Activity**:
-   - 100% screen-free tactile task using 24 tamarind seeds / river pebbles and 6 chalk circles on the classroom floor.
-   - Peer roles: *The Counter*, *The Distributor*, and *The Checker*.
-   - Oral discussion prompts in the local village dialect.
-3. 📄 **Station 3: Blackboard & Worksheet**:
-   - Printable or copyable blackboard guide.
-   - Features an independent transfer question (*"What if Farmer Ramesh had 30 tomatoes across 5 baskets?"*) to verify true understanding over rote memorization.
+### Step 1: Village Story & Audio Ingestion
+![Step 1 Ingestion Space](screenshot_space_1_ingest.png)
 
----
+### Step 2: Teacher Audit & Activity Previews (Slide 06 Hero)
+![Step 2 Review Space](screenshot_space_2_review.png)
 
-## 🛡️ 5 Quality Safeguards (Teacher Checklist)
-1. **Child-Safe & Respectful**: Village story checked for age-appropriateness and cultural resonance.
-2. **100% Accurate Math**: Automatic calculation checks guarantee equal division without errors.
-3. **Grade & Dialect Fit**: Teacher confirms suitability for Class 3 children and local linguistic nuances.
-4. **Safe Delivery Lock**: Student tablets are locked and will never display unapproved lessons.
-5. **Elder Credit & Consent**: Storyteller is formally credited and their ₹500 honorarium is logged from the adoption budget.
+### Step 3: NCERT Curriculum & Active Pedagogy Matrix
+![Step 3 Curriculum Space](screenshot_space_3_curriculum.png)
+
+### Step 4: Classroom Stations & 15-Minute Rotation Master Clock
+![Step 4 Classroom Space](screenshot_space_4_classroom.png)
 
 ---
 
-## ⏱️ Live Classroom Station Rotation (15-Minute Timer)
-To prevent device bottlenecks, the 30 students rotate across the 3 stations in cohorts of 10 every 15 minutes:
-- **Cohort A (10 students)**: Station 1 (Tablet Activity)
-- **Cohort B (10 students)**: Station 2 (Floor Seeds & Chalk)
-- **Cohort C (10 students)**: Station 3 (Blackboard & Slate)
+## 🌿 Light Green Aesthetic (IIM Shillong & biTeSys Palette)
+- **Primary Green & Mint Foliage** (`#15803d`, `#16a34a`, `#dcfce7`, `#f0fdf4`): Inspired by the hills of Northeast India and IIM Shillong's visual identity.
+- **Zero Technical Jargon**: No raw code blocks or engineering dumps—everything is written in warm, encouraging, human language suitable for primary school educators.
+- **Human-in-the-Loop Governance**: Teachers maintain complete authority over what reaches student devices.
 
 ---
 
 ## 🚀 How to Run the Prototype
 
-### Option 1: Instant Static Launch (Zero Installation)
-Simply double-click or open `index.html` in any web browser. It runs completely offline with zero server requirements.
+### Option 1: Direct In-Browser (Zero Install)
+Simply double-click or open `index.html` in any modern web browser. You can navigate between sections using the clickable stepper or direct hash links:
+- `index.html#ingest` (Step 1)
+- `index.html#review` (Step 2)
+- `index.html#curriculum` (Step 3)
+- `index.html#classroom` (Step 4)
 
 ### Option 2: Local Offline Server
 ```bash
 python server.py
 ```
-Then navigate to: `http://127.0.0.1:8000`
+Open: `http://127.0.0.1:8000`
 
 ---
 
 ## 📂 Repository Contents
 ```
 prototype-prodmad-/
-├── index.html                    # Light-green teacher review dashboard
-├── app.js                        # Interactive state, tablet simulation & audio
-├── styles.css                    # Professional light-green design system
+├── index.html                    # 4 dedicated spaces & clickable stepper
+├── app.js                        # Multi-space navigation, tablet simulation & audio
+├── styles.css                    # Light-green design system & responsive layout
 ├── server.py                     # Offline edge server (Python standard library)
-├── verify_engine.py              # Math verification logic
+├── verify_engine.py              # Deterministic math engine
 ├── mock_data.json                # Elder stories & curriculum mappings
-├── screenshot_teacher_light.png  # Pre-approval dashboard screenshot
-├── screenshot_approved_bottom.png# Post-approval active lesson screenshot
-└── README.md                     # Documentation & case study alignment
+├── screenshot_space_1_ingest.png # Step 1 Ingestion screenshot
+├── screenshot_space_2_review.png # Step 2 Review screenshot
+├── screenshot_space_3_curriculum.png # Step 3 Curriculum screenshot
+├── screenshot_space_4_classroom.png  # Step 4 Classroom screenshot
+└── README.md                     # Complete documentation & navigation guide
 ```
 
 ---
