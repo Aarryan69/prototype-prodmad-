@@ -351,17 +351,21 @@ function init() {
 
 // Fetch from local Python server if available
 function tryFetchServerData() {
-  fetch("/api/data")
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.stories) {
-        STATE.stories = data.stories;
-        console.log("Connected to ROOTS Local Server (127.0.0.1:8000)");
-      }
-    })
-    .catch(() => {
-      console.log("Running in standalone offline mode with embedded dataset.");
-    });
+  if (window.location.protocol.startsWith('http')) {
+    fetch("/api/data")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.stories) {
+          STATE.stories = data.stories;
+          console.log("Connected to ROOTS Local Server (127.0.0.1:8000)");
+        }
+      })
+      .catch(() => {
+        console.log("Running in standalone offline mode with embedded dataset.");
+      });
+  } else {
+    console.log("Loaded via local file protocol - using embedded zero-latency offline dataset.");
+  }
 }
 
 // ============================================================================

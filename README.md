@@ -3,6 +3,12 @@
 **ProdMad 6.0 Case Study: "The Village Beyond the Signal"**  
 *Organized by IIM Shillong & biTeSys*
 
+![ROOTS Teacher Audit Console](screenshot.png)
+*Interactive Teacher Audit & Approval Console running with zero cloud latency on the village laptop.*
+
+![Approved & Synced State](screenshot_approved.png)
+*Post-audit state: 24 tomatoes partitioned equally into 6 baskets, SHA-256 package sealed, and pushed to 3 classroom stations.*
+
 ---
 
 ## 🌄 The Context & The Mad Problem
